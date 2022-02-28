@@ -1,0 +1,103 @@
+
+\section{Laplacien}
+
+$\Omega$ ouvert régulier de $\mathbb{R}^d$.
+$\hilbert = L^2(\Omega)$.
+
+$\ps{\cdot}{\cdot} = \ps{\cdot}{\cdot}_{\hilbert} = \ps{\cdot}{\cdot}_{L^2}$
+
+$A_? = -\Delta$.
+
+\subsection{A minimum}
+
+$D(A_{min}) = \cinfc$.
+
+\paragraph{Symétrique :} Soit $x, y \in D(A)$. On note que $x$ et $y$ sont nuls sur
+$\partial \Omega$.
+%
+\begin{align}
+    \ps{A_{min} x}{y} &= -\int \overline{\Delta x} y
+    = -\int_\partial y \overline{\nabla x} \cdot n + \int \overline{\nabla x} \nabla y
+    = \int \overline{\nabla x} \nabla y \\
+    &= \int_\partial \overline{x} \nabla y \cdot n - \int \overline{x} \Delta y
+    = -\int \overline{x} \Delta y = \ps{x}{A_{min} y}
+\end{align}
+
+\paragraph{Pas fermé :} Soit $x_n$ une suite de $D(A)$ telle que $x_n$ converge
+vers $x \in L^2$ dans $\hilbert = L^2$.
+C'est-à-dire $\cvld{x_n}{x}$.
+
+Soit $y \in L^2$ tel que $\cvld{Ax_n}{y}$, et donc que $\cvld{-\Delta x_n}{y}$.
+
+Pour montrer que $A_{min}$ est fermé il faut montrer que $x \in D(A)$ et
+que $Ax = y$.
+
+Par régularité elliptique on a $\cvhd{x_n}{x}$.
+
+Et la fermeture de $\cinfc$ selon la norme de $H^2$ est en fait $H_0^2$.
+Donc il exist une suite de $\cinfc$ qui converge vers une limite
+qui est dans $H_0^2$, mais qui n'est pas dans $\cinfc$.
+
+Donc $A_{min}$ ne peut pas être fermé.
+
+Il nous manque un truc quelque part me semble-t-il.
+
+\paragraph{Fermable :} $A_{min}$ est symétrique, ce qui implique que
+$A_{min} \subset A_{min}^*$. Comme $A_{min}^*$ est fermé, il existe bien
+une extension fermée de $A_{min}$.
+
+
+
+\paragraph{Fermeture :} $D(\overline A_{min}) = H_0^2$.
+
+On a $\cvld{x_n}{x}$ et $\cvld{-\Delta x_n}{-y}$.
+
+Par régularité elliptique on a donc $\cvhd{x_n}{x}$.
+
+Et comme $x_n \in H_0^2$ qui est complet (pour la norme de $H^2$),
+on doit avoir $x \in H_0^2$.
+
+Et $-\Delta x = y = \lim(-\Delta x_n)$ ?????
+
+Soit $\phi \in \cinfc$.
+\begin{align}
+    -\int \Delta x_n \phi = -\int x_n \Delta \phi
+\end{align}
+
+On a convergence pour le terme à gauche :
+\begin{align}
+    \left| \int \Delta x_n \phi - \int y \phi \right|
+    \leq \int | \Delta x_n - y | |\phi|
+    \leq \nmld{\Delta x_n - y} \nmld{\phi} \longrightarrow 0
+\end{align}
+
+Et à droite :
+\begin{align}
+    \left| \int x_n \Delta \phi - \int x \Delta \phi \right|
+    \leq \int | x_n - x | | \Delta \phi|
+    \leq \nmld{x_n - x} \nmld{\Delta \phi} \longrightarrow 0
+\end{align}
+
+Donc $\forall \phi \in \cinfc$,
+\begin{align}
+    -\int y \phi = -\int x \Delta \phi
+\end{align}
+Et donc $-y$ = $-\Delta x$ au sens des distributions.
+
+Alors, $\overline A_{min} = A_0$ est fermé. Mais comment
+savoir que $A_0$ est la plus petite extension fermée de $A_{min}$ ?
+On a clairement que $D(\overline A_{min}) \subset D(A_0)$, car $A_0$
+est fermé. Mais qu'en est il de $D(A_0) \subset D(\overline A_{min})$ ?
+$\cinfc$ est dense dans $H_0^2$. Donc si $x \in H_0^2$ on doit aussi
+avoir $x \in \overline \cinfc$.
+
+\paragraph{Spectre :} $A_{min}$ n'est pas fermé.
+Donc $\sigma(A_{min}) = \mathbb{C}$.
+
+\newpage
+\subsection{$A_0$}
+
+$D(A_0) = H_0^2$. On sait déjà que $A_0$ est symétrique et fermé.
+
+\paragraph{Adjoint}
+

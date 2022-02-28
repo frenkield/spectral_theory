@@ -1,0 +1,496 @@
+
+\section*{Partie II}
+
+\subsection*{Exercice 2a}
+
+Soit $\phi, \psi \in \schwartz$. Donc
+\begin{align}
+    \pslt{A \phi}{\psi} &= \pslt{(-\ud \Delta + V(x) + x_1) \phi}{\psi} \\
+    &= -\ud \pslt{\Delta \phi}{\psi} + \pslt{(V(x) + x_1) \phi}{\psi}.
+\end{align}
+%
+On commence avec le terme du laplacien, où on effectue 2 fois
+une intégration par parties.
+
+Soit $B_R \in \R^3$ la boule centrée à l'origine de rayon $R > 0$,
+et soit $\hat n \in \R^3$ le vecteur normal orienté vers l'extérieur
+de $B_R$. Pour tout $u, v \in \cinfc$ on a
+\begin{align}
+    \pslt{\Delta u}{v}
+    &= \limb \int_{B_R} (\Delta \overline u) v \ dx \\
+%
+    &= \limb \int_{\partial B_R}
+    v (\nabla \overline u \cdot \hat n) \ dx
+    - \limb \int_{B_R} \nabla \overline u \cdot \nabla v \ dx \\
+%
+    &= -\limb \int_{B_R} \nabla \overline u \cdot \nabla v \ dx
+    \qquad (\text{car } u, v \in \cinfc) \\
+%
+    &= -\limb \int_{\partial B_R}
+    \overline u (\nabla v \cdot \hat n) \ dx
+    + \limb \int_{B_R} \overline u (\Delta v) \ dx \\
+%
+    &= \limb \int_{B_R} \overline u (\Delta v) \ dx \\
+%
+    &= \int_{\R^3} \overline u (\Delta v) \ dx \\
+    &= \pslt{u}{\Delta v}.
+\end{align}
+%
+Le laplacien est donc symétrique sur $\cinfc$. Comme
+$\cinfc$ est dense dans $\schwartz$ il s'ensuit que
+le laplacien et aussi symétrique sur $\schwartz$.
+
+Pour le deuxième terme on a
+\begin{align}
+    \pslt{(V(x) + x_1) u}{v}
+    &= \int_{\R^3} ((V(x) + x_1) \overline u v \ dx.
+\end{align}
+%
+Comme $V(x)$ est borné et $\schwartz$ est stable par
+multiplication par des
+polynômes, l'intégrale à droite est bien définie. Donc
+\begin{align}
+    \pslt{(V(x) + x_1) u}{v}
+    &= \int_{\R^3} ((V(x) + x_1) \overline u v \ dx \\
+    &= \int_{\R^3}  \overline u ((V(x) + x_1) v \ dx \\
+    &= \pslt{u}{(V(x) + x_1) v}.
+\end{align}
+%
+Finalement, on a
+\begin{align}
+    \pslt{A \phi}{\psi} &= \pslt{(-\ud \Delta + V(x) + x_1) \phi}{\psi} \\
+    &= -\ud \pslt{\Delta \phi}{\psi} + \pslt{(V(x) + x_1) \phi}{\psi} \\
+    &= -\ud \pslt{\phi}{\Delta \psi} + \pslt{\phi}{(V(x) + x_1) \psi} \\
+    &= \pslt{\phi}{(-\ud \Delta + V(x) + x_1) \psi}.
+\end{align}
+%
+Donc $A$ est un opérateur symétrique sur $\schwartz$.
+
+% ==============================================================
+
+\subsection*{Exercice 2b}
+
+\subsubsection*{(i) Équivalence unitaire et valeur de $c$ :}
+
+Soit $u \in D(\hodd{3})$, $t \in \R^3$, et $(\T(t) u)(x) = u(x - t)$
+l'opérateur de translation sur $\ldrt$. On choisit
+$t = t_1 = (1,0,0)^\intercal$, ce qui nous amène à
+\begin{align}
+    \hodd{3} (\T(t_1) u)(x) &= \hodd{3} u(x - t_1) \\
+    &= \hodd{3} u(x - (1,0,0)^\intercal) \\
+    &= (-\ud \Delta + \ud |x|^2) u(x - (1,0,0)^\intercal).
+\end{align}
+%
+Ensuite on effectue le changement de variable $y = x - (1,0,0)^\intercal$.
+Cela implique que
+\begin{align}
+    |x|^2 &= x_1^2 + x_2^2 + x_3^2 \\
+    &= (y_1 + 1)^2 + y_2^2 + y_3^2 \\
+    &= 1 + 2y_1 + y_1^2 + y_2^2 + y_3^2 \\
+    &= 1 + 2y_1 + |y|^2.
+\end{align}
+%
+Donc
+\begin{align}
+    \hodd{3} (\T(t_1) u)(x)
+    &= (-\ud \Delta + \ud |x|^2) u(x - (1,0,0)^\intercal) \\
+    &= (-\ud \Delta + \ud (1 + 2y_1 + |y|^2)) u(y) \\
+    &= (-\ud \Delta + y_1 + \ud |y|^2 + \ud ) u(y) \\
+    &= (N_0 + \ud) u(y).
+\end{align}
+%
+On en tire que
+\begin{align}
+    N_0 = (\hodd{3} - \ud)\T(t_1) = (\hodd{3} + c)\T(t_1),
+\end{align}
+%
+où $c = - \ud$.
+
+D'après la section 4.7.2 du polycopié du cours, $\T(t_1)$ est
+bien un opérateur unitaire.
+Donc avec $D(N_0) = \T(t_1) D(\hodd{3})$, $N_0$ est unitairement équivalent
+à $\hodd{3} - \ud$.
+
+\subsubsection*{(ii) $N_0$ auto-adjoint :}
+
+L'opérateur $\hodd{3} - \ud$ est bien auto-adjoint, car $\hodd{3}$ est
+auto-adjoint et pour tout $u,v \in D(\hodd{3})$ on a
+\begin{align}
+    \pslt{(\hodd{3} - \ud)u}{v} &= \pslt{\hodd{3} u}{v} + \pslt{-\ud u}{v} \\
+    &= \pslt{u}{\hodd{3} v} + \pslt{u}{-\ud v} \\
+    &= \pslt{u}{(\hodd{3} - \ud)v}.
+\end{align}
+%
+Comme $N_0$ est unitairement équivalent à un opérateur auto-adjoint,
+il s'ensuit que $N_0$ est aussi auto-adjoint. En effet, soit
+$A$ un opérateur auto-adjoint de domaine $D(A) \subset \hilbert$,
+$U$ un opérateur unitaire sur $\hilbert$, et $B$ un opérateur
+unitairement équivalent à $A$ de domaine $D(B) = U D(A)$.
+Par la critère fondamentale d'auto-adjonction, pour tout
+$f \in \hilbert$ il existe $u \in D(A)$ tel que $(A - i)u = f$.
+Donc
+\begin{align}
+    f = (A - i)u = (U^* B U - i)u = U^* (B - i)U u.
+\end{align}
+%
+Et donc
+\begin{align}
+    (B - i)U u = U^* f.
+\end{align}
+%
+Si on pose $g = U^* f \in \hilbert$ et $v = U u \in D(B)$ on a
+\begin{align}
+    (B - i)v = g.
+\end{align}
+%
+Alors, pour tout $g \in \hilbert$ il existe $v \in D(B)$ tel que
+$(B - i)v = g$. On a bien sûr un résultat pareil pour $B + i$.
+Donc par la critère fondamentale d'auto-adjonction $B$ (et $N_0$)
+est auto-adjoint.
+
+\subsubsection*{(iii) Spectre de $N_0$ et $N_0 \geqslant 1$ :}
+
+Soit $(\lambda_n^{(3)})_\inn{n}$ les valeurs propres de $\hodd{3}$ et
+$(\phi_n^{(3)})_\inn{n}$ les fonctions propres associées.
+Donc, pour tout $n \in \N$,
+$(\hodd{3} - \ud) \phi_n^{(3)} = (\lambda_n^{(3)} - \ud) \phi_n^{(3)}$.
+Donc les valeurs propres de $\hodd{3} - \ud$ sont définies par
+$(\lambda_n^{(3)} - \ud)_\inn{n}$.
+
+Comme $N_0$ est unitairement équivalent à $\hodd{3} - \ud$,
+ses valeurs propres sont identique aux valeurs propres de $\hodd{3} - \ud$.
+En effet, soit $A$, $B$, et $U$ définies comme ci-dessus. Alors,
+$Av = \lambda v$ implique que $B (Uv) = \lambda (Uv)$.
+
+Le spectre ponctuel de $N_0$ est donc définie par
+$\sigma_{ponc}(N_0) = (\lambda_n^{(3)} - \ud)_\inn{n}$, et
+son spectre continu est vide.
+
+Comme le plus petit valeur propre de $\hodd{3}$ est
+$\lambda_0^{(3)} = \frac{3}{2}$, le plus petit valeur propre de
+$\hodd{3} - \ud$ est donc $\lambda_0^{(3)} - \ud = 1$.
+Et comme $\hodd{3} - \ud$ est auto-adjoint et son spectre est
+$\sigma(\hodd{3} - \ud) \subset [1, +\infty[$
+il s'ensuit, par le corollaire 4.9 du polycopié du cours,
+que $\hodd{3} - \ud \geqslant 1$.
+
+Donc $N_0 \geqslant 1$.
+
+\subsubsection*{(iv) Résolvante compacte :}
+
+Tout d'abord, $\hodd{3} - \ud$ est à résolvante compacte par
+les mêmes arguments utilisés dans l'exercice 1f. Donc, comme
+$N_0$ est unitairement équivalent à un opérateur à résolvante compacte,
+$N_0$ est aussi à résolvante compacte.
+
+En effet, soit encore $A$, $B$, et $U$ définies comme ci-dessus,
+où $A$ est à résolvante compacte. Donc
+il existe $\lambda \in \R$ tel que $(A - \lambda)^{-1}$ est
+compacte. $U (A -\lambda)^{-1} U^*$
+est aussi à résolvante compacte car $U$ est borné.
+Et comme $A$ et $B$ ont les mêmes valeurs propres
+$(B - \lambda)^{-1}$ est bien définie.
+
+On en tire que
+\begin{align}
+    (B - \lambda)^{-1} &= (UAU^* - \lambda)^{-1} \\
+    &= (U(A - \lambda) U^*)^{-1} \\
+    &= U (A - \lambda)^{-1} U^*.
+\end{align}
+%
+Donc $(B - \lambda)^{-1}$ est compacte, et $B$ est
+à résolvante compacte.
+
+% =============================================================
+
+\subsection*{Exercice 2c}
+
+Comme dans l'exercice 2b, on pose que $D(N) = \T(t_1) D(\hodd{3})$.
+Donc sur ce domaine $N = -\ud \Delta + V + \ud |x|^2 = N_0 + V$.
+
+Or, $V \in \ldri$ est un opérateur
+borné et symétrique de domaine $D(V) = \hilbert = \ldrt$.
+Donc $D(N_0) \subset D(V)$ et pour tout $u \in D(A)$ on a
+\begin{align}
+    \normelt{Vu} & \leqslant \normeli{V}\normelt{u} \\
+    & \leqslant \alpha \normelt{N_0 u} + C\normelt{u},
+\end{align}
+où $0 \leqslant \alpha < 1$ et $C = \normeli{V}$.
+
+Donc $V$ est $N_0$ borné et, par le théorème de Kato-Rellich,
+l'opérateur $N = N_0 + V$ est auto-adjoint.
+
+Soit $u \in D(N)$. On a
+\begin{align}
+    \pslt{Nu}{u} &= \pslt{(N_0 + V)u}{u} \\
+    &= \pslt{N_0 u}{u} + \pslt{Vu}{u} \\
+    & \geqslant \normelt{u}^2 + \pslt{Vu}{u} \\
+    & \geqslant \normelt{u}^2,
+\end{align}
+car $N_0 \geqslant 1$ et $V \geqslant 0$. Donc, encore par
+le corollaire 4.9 du polycopié du cours, $N \geqslant 1$.
+
+Finalement, soit l'opérateur
+$B = N - \ud \hodd{3}$ de domaine $D(B) = \T(t_2) D(\hodd{3})$,
+où $t_2 = (-2,0,0)^\intercal$. On a
+\begin{align}
+    B &= N - \ud \hodd{3} \\
+    &= -\ud \Delta + V + x_1 + \ud |x|^2 - \ud \left(-\ud \Delta + \ud |x|^2 \right) \\
+    &= -\udd{4} \Delta + V + x_1 + \udd{4} |x|^2 \\
+    &= \ud \left( -\ud \Delta + 2V + 2x_1 + \ud |x|^2 \right).
+\end{align}
+
+Ensuite on effectue le changement de variable $y = x - (-2,0,0)^\intercal$.
+Cela implique que
+\begin{align}
+    |x|^2 &= x_1^2 + x_2^2 + x_3^2 \\
+    &= (y_1 - 2)^2 + y_2^2 + y_3^2 \\
+    &= 4 - 4y_1 + y_1^2 + y_2^2 + y_3^2 \\
+    &= 4 - 4y_1 + |y|^2.
+\end{align}
+%
+Donc, sur $D(B)$, $B$ devient
+\begin{align}
+    B &= \ud \left( -\ud \Delta + 2V + 2(y_1 - 2) + \ud (4 - 4y_1 + |y|^2) \right) \\
+    &= \ud \left( -\ud \Delta + 2V - 2 + \ud |y|^2 \right) \\
+    &= \ud \left( N + V - 2 \right).
+\end{align}
+%
+Or, soit $u \in D(B)$. Donc
+\begin{align}
+    \pslt{Bu}{u} &= \ud \pslt{(N + V - 2)u}{u} \\
+    &= \ud \pslt{Nu}{u} - \pslt{u}{u} + \ud \pslt{Vu}{u} \\
+    & \geqslant \ud \pslt{Nu}{u} - \pslt{u}{u}
+    \qquad (\text{car } V \geqslant 0) \\
+    & \geqslant \ud \pslt{u}{u} - \pslt{u}{u}
+    \qquad (\text{car } N \geqslant 1) \\
+    &= -\ud \normelt{u}^2.
+\end{align}
+%
+Donc $B = N - \ud \hodd{3} \geqslant -\ud$. Ce qui implique que
+$N \geqslant \ud \hodd{3} - \ud$.
+
+Ce n'est pas exactement la solution cherchée. Malheureusement
+je n'arrive pas à trouver l'erreur dans les calculs.
+
+% =============================================================
+
+\subsection*{Exercice 2d}
+
+Pour tous les calculs ci-dessous on note $\normelds{\cdot} = \normelt{\cdot}$
+et $\pslts{\cdot}{\cdot} = \pslt{\cdot}{\cdot}$
+
+\subsubsection*{i)}
+
+Soit $\phi \in \schwartz$ et $j = 1$.
+On admet le fait que pour tout $\phi, \psi \in \schwartz$ on a
+\begin{align}
+    \pslts{\frac{\partial \phi}{\partial x_j}}{\psi}
+    = -\pslts{\phi}{\frac{\partial \psi}{\partial x_j}}.
+\end{align}
+%
+Ça ce montre avec une intégration par parties et par la densité
+de $\cinfc$ dans $\schwartz$.
+
+Comme $\schwartz$ est stable par
+multiplication par des polynômes on a
+\begin{align}
+    \pslts{\frac{\partial \phi}{\partial x_1}}{x_1 \phi}
+    &= -\pslts{\phi}{\frac{\partial (x_1 \phi)}{\partial x_1}} \\
+    &= -\pslts{\phi}{\phi}
+    - \pslts{\phi}{ x_1 \frac{\partial \phi}{\partial x_1}} \\
+    &= -\normelds{\phi}^2
+    - \pslts{x_1 \phi}{\frac{\partial \phi}{\partial x_1}} \\
+    &= -\normelds{\phi}^2
+    - \pslto{\frac{\partial \phi}{\partial x_1}}{x_1 \phi}.
+\end{align}
+%
+Donc
+\begin{align}
+    -\normelds{\phi}^2 &=
+    \pslts{\frac{\partial \phi}{\partial x_1}}{x_1 \phi}
+    + \pslto{\frac{\partial \phi}{\partial x_1}}{x_1 \phi} \\
+    &= 2 \text{Re} \pslts{\frac{\partial \phi}{\partial x_1}}{x_1 \phi}.
+\end{align}
+%
+Ce résultat est également vrai pour tout $1 \leqslant j \leqslant 3$.
+Donc
+\begin{align}
+    \text{Re} \pslts{\frac{\partial \phi}{\partial x_j}}{x_j \phi}
+    = -\ud \normelds{\phi}^2.
+\end{align}
+
+\subsubsection*{ii)}
+
+Soit $\phi \in \schwartz$. On a
+\begin{align}
+    \Delta(x_1 \phi)
+    &= \frac{\partial^2}{\partial x_1^2}(x_1 \phi)
+    + \frac{\partial^2}{\partial x_2^2}(x_1 \phi)
+    + \frac{\partial^2}{\partial x_3^2}(x_1 \phi) \\
+    &= \frac{\partial}{\partial x_1}
+    \left (\phi + x_1 \frac{\partial \phi}{\partial x_1} \right)
+    + x_1 \frac{\partial^2 \phi}{\partial x_2^2}
+    + x_1 \frac{\partial^2 \phi}{\partial x_3^2} \\
+    &= 2 \frac{\partial \phi}{\partial x_1}
+    + x_1 \frac{\partial^2 \phi}{\partial x_1^2}
+    + x_1 \frac{\partial^2 \phi}{\partial x_2^2}
+    + x_1 \frac{\partial^2 \phi}{\partial x_3^2} \\
+    &= 2 \frac{\partial \phi}{\partial x_1}
+    + x_1 \Delta \phi.
+\end{align}
+%
+Donc pout tout $1 \leqslant j \leqslant 3$, on a
+\begin{align}
+    \Delta(x_j \phi) = 2 \frac{\partial \phi}{\partial x_j}
+    + x_j \Delta \phi.
+\end{align}
+%
+Ensuite,
+\begin{align}
+    \pslts{A(x_j \phi)}{x_j \phi}
+    &= \pslts{-\ud \Delta(x_j \phi) + (V + x_j)(x_j \phi)}{x_j \phi} \\
+    &= \pslts{-\frac{\partial \phi}{\partial x_j}
+        - \ud x_j \Delta \phi + (V + x_j)(x_j \phi)}{x_j \phi} \\
+    &= \pslts{-\frac{\partial \phi}{\partial x_j}
+        + x_j A \phi}{x_j \phi} \\
+    &= \pslts{x_j A \phi}{x_j \phi}
+     -\pslts{\frac{\partial \phi}{\partial x_j}}{x_j \phi}\\
+    &= \pslts{A \phi}{x_j^2 \phi}
+    -\pslts{\frac{\partial \phi}{\partial x_j}}{x_j \phi}.
+\end{align}
+
+\subsubsection*{iii)}
+%
+\begin{align}
+    \normelds{N \phi}^2 &= \normelds{(A + \ud |x|^2) \phi}^2 \\
+    &= \pslts{(A + \ud |x|^2) \phi}{(A + \ud |x|^2) \phi} \\
+%
+    &= \pslts{A \phi}{A \phi}
+    + \pslts{A \phi}{\ud |x|^2 \phi}
+    + \pslts{\ud |x|^2 \phi}{A  \phi}
+    + \pslts{\ud |x|^2 \phi}{\ud |x|^2 \phi} \\
+%
+    &= \normelds{A \phi}^2
+    + 2 \text{Re} \pslts{A \phi}{\ud |x|^2 \phi}
+    + \udd{4} \normelds{|x|^2 \phi}^2 \\
+%
+    &= \normelds{A \phi}^2
+    + \sum_{j=1}^3 \text{Re} \pslts{A \phi}{x_j^2 \phi}
+    + \udd{4} \normelds{|x|^2 \phi}^2 \\
+%
+    &= \normelds{A \phi}^2
+    + \sum_{j=1}^3 \text{Re}
+    \left[ \pslts{A(x_j \phi)}{x_j \phi}
+        + \pslts{\frac{\partial \phi}{\partial x_j}}{x_j \phi} \right]
+    + \udd{4} \normelds{|x|^2 \phi}^2 \\
+%
+    &= \normelds{A \phi}^2
+    + \sum_{j=1}^3 \pslts{A(x_j \phi)}{x_j \phi}
+    - \frac{3}{2} \normelds{\phi}
+    + \udd{4} \normelds{|x|^2 \phi}^2,
+\end{align}
+%
+car $A$ est symétrique ($\pslts{A(x_j \phi)}{x_j \phi}$ est réel).
+
+Et puis on a
+\begin{align}
+    \sum_{j=1}^3 \pslts{|x|^2 x_j \phi}{x_j \phi}
+    &= \sum_{j=1}^3 \pslts{|x|^2 \phi}{x_j^2 \phi} \\
+    &= \pslts{|x|^2 \phi}{\sum_{j=1}^3 x_j^2 \phi} \\
+    &= \pslts{|x|^2 \phi}{|x|^2 \phi} \\
+    &= \normelds{|x|^2 \phi}^2.
+\end{align}
+
+Alors finalement,
+\begin{align}
+    \normelds{N \phi}^2
+    &= \normelds{A \phi}^2
+    + \sum_{j=1}^3 \pslts{A(x_j \phi)}{x_j \phi}
+    + \udd{4} \normelds{|x|^2 \phi}^2
+    - \frac{3}{2} \normelds{\phi} \\
+%
+    &= \normelds{A \phi}^2
+    + \sum_{j=1}^3 \pslts{A(x_j \phi)}{x_j \phi}
+    + \udd{4} \sum_{j=1}^3 \pslts{|x|^2 x_j \phi}{x_j \phi}
+    - \frac{3}{2} \normelds{\phi} \\
+%
+    &= \normelds{A \phi}^2
+    + \sum_{j=1}^3 \left( \pslts{A(x_j \phi)}{x_j \phi}
+    + \udd{4} \pslts{|x|^2 x_j \phi}{x_j \phi} \right)
+    - \frac{3}{2} \normelds{\phi} \\
+%
+    &= \normelds{A \phi}^2
+    + \sum_{j=1}^3 \pslts{ \left( A + \udd{4} |x|^2 \right) (x_j \phi)}{x_j \phi}
+    - \frac{3}{2} \normelds{\phi}.
+\end{align}
+
+\subsubsection*{iv)}
+Sauté.
+
+% =============================================================
+
+\subsection*{Exercice 2e}
+Sauté.
+
+% =============================================================
+
+\subsection*{Exercice 2f}
+
+Comme $\psis \in \schwartz$ et $\schwartz$ est stable par dérivation
+et multiplication par des polynômes, les 2 intégrales existent.
+Donc, moyennant le changement de variable $y = \sigma x$ et
+$dy = \sigma^3 dx$, on a
+\begin{align}
+    \ud \int_{\R^3} |\nabla \psis|^2 +
+    \frac{\omega^2}{2} \int_{\R^3} |x|^2 |\psis|^2
+    &= \sigma^3 \ud \int_{\R^3} |\nabla \psi(\sigma x)|^2
+    + \sigma^3 \frac{\omega^2}{2} \int_{\R^3} |x|^2 |\psi(\sigma x)|^2 \\
+%
+    &= \sigma^3 \ud \int_{\R^3} |\nabla \psi(y)|^2 \udd{\sigma^3}
+    + \sigma^3 \frac{\omega^2}{2} \int_{\R^3} |x|^2 |\psi(y)|^2 \udd{\sigma^3} \\
+%
+    &= \ud \int_{\R^3} |\nabla \psi(y)|^2
+    + \frac{\omega^2}{2} \int_{\R^3} |x|^2 |\psi(y)|^2.
+\end{align}
+%
+Donc, avec $\omega = 1/\sqrt{2}$, $\sigma = 1$,
+et une petite astuce
+($a + b \geqslant 2\sqrt{a}\sqrt{b}$ pour a,b positif),
+on a
+\begin{align}
+    \ud \int_{\R^3} |\nabla \psi(x)|^2
+    + \udd{4} \int_{\R^3} |x|^2 |\psi(x)|^2
+%
+    & \geqslant 2 \left( \ud \int_{\R^3} |\nabla \psi(x)|^2 \right)^\ud
+    \left( \udd{4} \int_{\R^3} |x|^2 |\psi(x)|^2 \right)^\ud \\
+%
+    &= \udd{\sqrt{2}} \left( \int_{\R^3} |\nabla \psi(x)|^2 \right)^\ud
+    \left( \int_{\R^3} |x|^2 |\psi(x)|^2 \right)^\ud \\
+%
+    & \geqslant \frac{3}{2 \sqrt{2}}
+    \int_{\R^3} |\psi(x)|^2,
+\end{align}
+%
+où pour la dernière inégalité on utilise
+l'inégalité usuelle d'Heisenberg
+(expression 1.11 du polycopié du cours).
+
+Et il n'y a pas de solution pour la dernière partie
+de l'exercice.
+
+
+% =============================================================
+
+\subsection*{Exercice 2g}
+Sauté.
+
+% =============================================================
+
+\subsection*{Exercice 2h}
+Sauté.
+
+% =============================================================
+
+\subsection*{Exercice 2i}
+Sauté.

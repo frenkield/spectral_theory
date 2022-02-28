@@ -1,0 +1,236 @@
+
+\section{Définitions}
+
+% \langle p†u|v \rangle −〈qu|v〉=〈(p†−q)u|v〉=1i[u∗(b)v(b)−u∗(a)v(a)]
+
+% spectre essentiel
+
+\begin{defi}
+    (Opérateur borné)
+    Soit $\hilbert$ un espace de Hilbert. Un opérateur linéaire
+    $A: D(A) \rightarrow \hilbert$
+    est borné si $D(A) = \hilbert$ et...
+    $\norme{Ax} \leq C\norme{x}$
+\end{defi}
+
+
+% si A est borné, \norme{A^*} = \norme{A}
+
+%l’hypothese que D(A) est dense sert à pouvoir définir l’application A∗ mais D(A∗)
+%n’est pas nécessairement dense. D(A∗) est dense si et seulement si A est fermable.
+
+% A, A_bar symetrique => ker(A−z) = {0} si partie complexe de z != 0.
+
+% when we will specialize ourself toself-adjointoperators later on, we will prove that theresidual spectrum of these operators is empty
+
+% operateur borne \donc spectre non vide - polyspec.pdf
+
+% \norme{A} = \sup \ps{x}{Ax}
+
+\begin{defi}
+    (Domaine dense)
+    Soit $\hilbert$ un espace de Hilbert. Un domaine est dense si
+    $\forall x \in \hilbert \ \exists x_n \in D(A)$ tel que $x_n \rightarrow x$.
+\end{defi}
+
+
+
+
+
+
+
+\begin{defi}
+    (Opérateur fermé)
+    Soit $\hilbert$ un espace de Hilbert. Un opérateur linéaire
+    $A: \hilbert \supset D(A) \rightarrow \hilbert$
+    est dite fermé si pour toute suite dans D(A) telle que $x_n \rightarrow x$
+    et $A x_n \rightarrow y$,
+    on a $x \in D(A)$ et $Ax = y$.
+\end{defi}
+
+
+
+
+
+
+\begin{defi}
+    (Opérateur fermable).
+    Un operateur est fermable s'il existe une extension fermée.
+\end{defi}
+
+\begin{defi}
+    (Fermeture d'un opérateur).
+    La fermeture de $A$ est la plus petite extension fermée de $(A, D(A))$.
+    On peut le noté $\overline A$.
+\end{defi}
+
+\begin{defi}
+    (Opérateur symétrique).
+    Un opérateur $A$ est dite symétrique si pour tout $x, y \in D(A) \subset \hilbert$,
+    on a $\langle Ax, y \rangle = \langle x, Ay \rangle$. De facon équivalente
+    $A \subset A^*$, c'est-à-dire $G(A) \subset G(A^*)$.
+\end{defi}
+
+\begin{defi}
+    (Domaine d'operateur adjoint). $D(A^*) = \{ y \in \hilbert : \exists z \in \hilbert
+    \text{ t.q. } \forall x \in D(A)$ on a
+    $\langle Ax, y \rangle = \langle x, z \rangle \}$.
+
+    On peut aussi dire
+    que $\phi(x)_{A,y} = \langle Ax, y \rangle$, et que $z$ identifie $\phi_{A,y}$.
+
+    Donc c'est $D(A^*) = \{ y \in \hilbert : \exists z \in \hilbert
+    \text{ qui identifie } \phi_{A,y} \}$.
+
+\end{defi}
+
+\begin{defi}
+    (Adjoint d'un opérateur). L'adoint de $A$ est l'operateur
+    $A^* : \hilbert \supset D(A^*) \rightarrow \hilbert$ tel que pour tout
+    $x \in D(A)$, $y \in D(A^*)$, on a
+    $\langle Ax, y \rangle = \langle x, A^* y \rangle$.
+\end{defi}
+
+\begin{defi}
+    (Opérateur auto-adjoint)
+    Un opérateur $A$ est auto-adjoint si $A = A^*$.
+\end{defi}
+
+
+\begin{defi}
+    (Opérateur essentiellement auto-adjoint)
+    Un opérateur $A$ est essentiellement auto-adjoint si $A$ est
+    symétrique et $\overline A$ est auto-adjoint.
+\end{defi}
+
+
+\begin{defi}
+    (Suite de Weyl)
+    $(u_n) \subset D(A)$ telle que $\norme{u_n} = 1$ et
+    $\norme{(A - \lambda) u_n} \rightarrow 0$.
+\end{defi}
+
+
+\begin{defi}
+    (Opérateur à résolvante compact)
+    ?????????
+    Un opérateur K est dit compact lorsque l’image de la boule unité est
+    compacte ou, dit autrement, lorsque $Kv_n \to 0$ fortement pour toute
+    suite $v_n \to 0$ faiblement.
+    Si $\ps{v_n}{u} \to 0 \forall u$ et $\norme{Kv_n} \to 0$.
+\end{defi}
+
+\begin{defi}
+    (Opérateur compact)
+    Un opérateur K est dit compact lorsque l’image de la boule unité est
+    compacte ou, dit autrement, lorsque $Kv_n \to 0$ fortement pour toute
+    suite $v_n \to 0$ faiblement.
+    Si $\ps{v_n}{u} \to 0 \forall u$ et $\norme{Kv_n} \to 0$.
+
+    Si $\ps{v_n}{u} \to 0 \forall u$ on a $\norme{v_n} < \infty$. Et on peut
+    supposer que $\norme{v_n} \leq 1$. Comme $K$ est compact, la suite $Kv_n$
+    contient une sous-suite convergente, $Kv_{\phi(n)} \to y$.
+
+    Soit $y = Kv$. Donc $v_{\phi(n)} \to v$ car $K$ borné et donc continu ?
+    Et $\ps{v}{u} = 0 \Rightarrow v = 0$.
+
+    Sérieux ?????????????
+
+\end{defi}
+
+
+
+
+
+\section{Théorémes utiles}
+
+\begin{thm}
+    (Représentation de Riesz)
+    Soit $\hilbert$ un espace de Hilbert et $f \in \hilbert '$
+    une forme linéaire sur $\hilbert$. Alors, il existe $y \in \hilbert$
+    tel que $\forall x \in \hilbert, f(x) = \langle y, x \rangle$.
+\end{thm}
+
+\begin{thm}
+    (Régularité elliptique)
+    Soit $\hilbert$ un espace de Hilbert et $f \in \hilbert '$
+    une forme linéaire sur $\hilbert$. Alors, il existe $y \in \hilbert$
+    tel que $\forall x \in \hilbert, f(x) = \langle y, x \rangle$.
+\end{thm}
+
+
+\begin{thm}
+    (Corollaire 2.41 - Localisation du spectre)
+    Soit A un opérateur auto-adjoint sur le domaine $D(A)\subset H$ et
+    $a \in R.$
+%    Si〈v,Av〉≥a‖v‖2pour tout v∈ D(A), alors σ(A)⊂[a,+∞[.
+\end{thm}
+
+
+
+
+
+
+
+\section{Pas vraiment des théorémes}
+
+\begin{thm}
+    (Fermeture symétrique)
+    Soit $(A, D(A))$ un opérateur (dense) symétrique.
+    Alors, $\overline A$ est symétrique.
+
+%    Preuve : on veut montrer que $\overline A$ est symétrique.
+%
+%    Soit $x \in D(\overline A)$. Il existe donc $x_n \in D(A)$ tel que
+%    $x_n \rightarrow x$ et $A x_n \rightarrow Ax$. \\
+%    Soit $y \in D(\overline A)$. Il existe donc $y_m \in D(A)$ tel que
+%    $y_m \rightarrow y$ et $A y_m \rightarrow Ay$.
+%
+%    Donc $\ps{Ax}{y} = \lim \ps{Ax_n}{y}$
+
+    Soit $x \in D(\overline A)$. Il existe donc $x_n \in D(A)$ tel que
+    $\cvhd{x_n}{x}$ et $\cvhd{Ax_n}{Ax}$.
+
+    Soit $x \in D(\overline A), y \in D(A)$.
+
+
+
+    On a $\ps{Ax_n}{y} = \ps{x_n}{Ay}$,
+    et $\lim \ps{x_n}{Ay} = \ps{x}{Ay}$,
+    et $\lim \ps{Ax_n}{y} = \ps{Ax}{y}$.
+
+    Donc $\forall x \in D(\overline A), y \in D(A)$ on a
+    $\ps{x}{Ay} = \ps{Ax}{y}$, etc... ???
+
+%    $\ps{x}{Ay} - \ps{Ax}{y} = \lim \ps{x_n}{Ay} - lim \ps{Ax_n}{y}$ \\
+%    $ = \lim [ \ps{x_n}{Ay} - \ps{Ax_n}{y} ]$
+
+\end{thm}
+
+
+
+
+%Lemma 8.1 If A bounded and self-adjoint, the norm and the spectral
+%radius of A are equal.
+%
+%
+%Corollary 9.9 If A is a symmetric operator with Dom(A)=H, then
+%A is bounded.
+%
+%Proposition 2.35(Opérateurs auto-adjoints bornés).Si A est
+%défini  sur tout D(A)=Het est symétrique, alors A est auto-adjoint et borné.
+%
+%The  spectrum.Next,  remark  thatpHharm`1q ́1is  compact.   Therefore,  the  spectrum  ofpHharm`1q ́1is discrete, and can only accumulate at zero (recall that the essential spectrumis given byt0u).  This implies that the spectrum ofHharmconsists of isolated eigenvalues,diverging at infinity
+%
+%
+%
+%70 7. The Essential Spectrum: Weyl's Criterion (c) A is  an eigenvalue of A with infinite multiplicity if and only if there exists a sequence of linearly independent functions {Ui} c D(A) such that (A -A)Ui = O.
+%
+%
+%
+%λ ∈ σdisc(A) ⇐⇒ dimL2([λ−ε,λ+ε] × N,dμ) < ∞
+
+% C_c^\infty dense dans L^p et W^{1p}(\overline \Omega)
+% W_0^{1p} = fermeture C_c^\infty avec norme W^{1p}
+
+% \frac{1}{\sqrt{1 + x^2}}

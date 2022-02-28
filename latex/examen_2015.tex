@@ -1,0 +1,191 @@
+\section{Examen 2015}
+
+\paragraph{I.1.a}
+
+\begin{align}
+    \dig B = 0 \donc 0 = \ps{\dig B}{\phi} = -\ps{B}{\dig \phi}
+    \forall \phi \in \mathcal{S} \text{ ou } \cinfc
+\end{align}
+%
+\begin{align}
+    0 = \ps{\mathcal{F}(\dig B)}{\phi(u)} &= \ps{\dig B}{\mathcal{F}(\phi)} \\
+    &= -\ps{B}{\dig \mathcal{F}(\phi)} \\
+    &= -\ps{B}{-i \mathcal{F} (x\phi(x))} \\
+    &= i \ps{B}{\mathcal{F} (x\phi(x))} \\
+    &= i \ps{\mathcal{F}(B)}{u \phi(u)} \\
+    &= i \ps{u \mathcal{F}(B)}{\phi(u)} \\
+    \donc \quad & u \mathcal{F}(B) = 0
+\end{align}
+
+\begin{align}
+    \du \hat f(u) &= \du \ftc{1} \int f(x) e^{-iux} dx \\
+    &= \ftc{1} \int f(x) \du e^{-iux} dx \\
+    &= \ftc{1} \int f(x) (-ix) e^{-iux} dx \\
+    &= -i \ftc{1} \int f(x) x e^{-iux} dx \\
+    &= -i \mathcal{F} (xf(x))
+\end{align}
+
+
+
+
+
+
+\begin{align}
+    \mathcal{F}(B) =  \hat B(u) = \ftc{3} \int B(x) e^{-iu \cdot x} dx
+\end{align}
+
+
+
+
+
+\begin{align}
+    \mathcal{F}(\dig B) &= \ftc{3} \int \dig B e^{-iu \cdot x} dx \\
+    &= \ftc{3} \int \dig B e^{-i u_1 x_1} e^{-i u_2 x_2} e^{-i u_3 x_3} dx_1 dx_3 dx_3 \\
+    &= \ftc{3} \int (\partial_1 B + \partial_2 B + \partial_3 B)  e^{-i u_1 x_1} e^{-i u_2 x_2} e^{-i u_3 x_3} dx_1 dx_3 dx_3 \\
+\end{align}
+
+
+
+
+
+\begin{align}
+    \dig \mathcal{F}f &= \ftc{3} \dig \int f e^{-iu \cdot x} dx \\
+    &= \ftc{3} \left [
+        \partial_1 \int f_1 e^{-iu \cdot x} dx
+        + \partial_2 \int f_2 e^{-iu \cdot x} dx
+        + \partial_3 \int f_3 e^{-iu \cdot x} dx
+    \right] \\
+%
+    &= -i \ftc{3} \left [
+        \int x_1 f_1 e^{-iu \cdot x} dx
+        + \int x_2 f_2 e^{-iu \cdot x} dx
+        + \int x_3 e^{-iu \cdot x} dx
+        \right] \\
+\end{align}
+
+
+
+\section{Examen 2014}
+
+\paragraph{I.1.a}
+
+\begin{align}
+    |\hat{\mu}(t)|^2 = \hat{\mu}(t) \overline{\hat{\mu}(t)}
+    &= \int e^{-itx} d\mu(x) \overline{\int e^{-ity} d\mu(y)} \\
+    &= \int e^{-itx} d\mu(x) \int e^{ity} d\mu(y) \\
+    &= \int e^{-it(x-y)} d\mu(x) d\mu(y) \\
+\end{align}
+
+\begin{align}
+    |\hat{\mu}(-t)|^2 &= \int e^{it(x-y)} d\mu(x) d\mu(y) \\
+    &= \int e^{-it(y-x)} d\mu(x) d\mu(y) \\
+    &= \int e^{-it(x-y)} d\mu(y) d\mu(x) \\
+    &= \int \int e^{-it(x-y)} d\mu(x) d\mu(y) \\
+\end{align}
+%
+\begin{align}
+    \frac{2}{T} \int_0^T |\hat{\mu}(t)|^2 dt
+    &= \frac{1}{T} \int_0^T |\hat{\mu}(t)|^2 dt + \frac{1}{T} \int_0^T |\hat{\mu}(t)|^2 dt \\
+    &= \frac{1}{T} \int_0^T |\hat{\mu}(t)|^2 dt - \frac{1}{T} \int_0^{-T} |\hat{\mu}(-t)|^2 dt \\
+    &= \frac{1}{T} \int_0^T |\hat{\mu}(t)|^2 dt + \frac{1}{T} \int_{-T}^0 |\hat{\mu}(-t)|^2 dt \\
+    &= \frac{1}{T} \int_0^T |\hat{\mu}(t)|^2 dt + \frac{1}{T} \int_{-T}^0 |\hat{\mu}(t)|^2 dt \\
+    \implique & \frac{1}{T} \int_0^T |\hat{\mu}(t)|^2 dt = \frac{1}{2T} \int_{-T}^T |\hat{\mu}(t)|^2 dt \\
+    &= \frac{1}{2T} \int_{-T}^T \int_{R^2} e^{-it(x-y)} d\mu(x) d\mu(y) dt \\
+    &= \int_{R^2} \left[ \frac{1}{2T}  \int_{-T}^T e^{-it(x-y)} dt \right] d\mu(x) d\mu(y) \\
+\end{align}
+%
+\begin{align}
+    \lim_{T \to \infty} \int_\R K_T(x-y) d\mu(y) &= \lim_{T \to \infty} \int_\R K_T(y-x) d\mu(y) \\
+    &= \lim_{T \to \infty} \int_\R \left[ \frac{1}{2T} \int_{-T}^T e^{-it(y-x)} dt \right] d\mu(y) \\
+    &= \lim_{T \to \infty} \frac{1}{2T} \int_{-T}^T \int_\R  e^{-it(y-x)} d\mu(y) dt
+    \quad \text{(par Fubini)} \\
+%
+    &= \lim_{T \to \infty} \frac{1}{2T} \int_{-T}^T  e^{itx} \int_\R  e^{-ity} d\mu(y) dt \\
+    &= \lim_{T \to \infty} \frac{1}{2T} \int_{-T}^T  e^{itx}
+    \left[   \int_\R  e^{-ity} d\mu(y)  \right] dt \\
+%
+    &= \lim_{T \to \infty} \frac{1}{2T} \int_{-T}^T  e^{itx}
+    \left[   \sum_{y\in A_\mu}  e^{-ity} \mu(\{y\}) + \int_\R  e^{-ity} d\mu_c(y)  \right] dt \\
+%
+    &= \lim_{T \to \infty} \frac{1}{2T} \int_{-T}^T  e^{itx}
+    \left[   \sum_{y\in A_\mu}  e^{-ity} \mu(\{y\})  \right] dt \\
+%
+    &= \lim_{T \to \infty} \sum_{y\in A_\mu} \mu(\{y\}) \frac{1}{2T}
+    \int_{-T}^T  e^{itx} e^{-ity}  dt \\
+%
+    &= \lim_{T \to \infty} \sum_{y\in A_\mu} \mu(\{y\}) \frac{1}{2T}
+    \int_{-T}^T  e^{-it(y-x)} dt \\
+%
+%    &= \lim_{T \to \infty} \sum_{y\in A_\mu} \mu(\{y\}) \frac{1}{2T}
+%    \left[ \frac{1}{-i(y-x)} e^{-it(y-x)} \right]_{-T}^T \\
+\end{align}
+
+
+
+
+Si $x = y$, on a
+$\frac{1}{2T} \int_{-T}^T  e^{-it(y-x)} dt = \frac{1}{2T} \int_{-T}^T dt = 1.$
+
+Si $x \neq y$, on a
+\begin{align}
+    \frac{1}{2T} \int_{-T}^T  e^{-it(y-x)} dt
+    &= \frac{1}{2T}
+    \left[ \frac{1}{-i(y-x)} e^{-it(y-x)} \right]_{-T}^T \to 0 \\
+\end{align}
+
+
+
+\subsection{Exo 1.12}
+
+Soit $\psi_n = e^{ik \cdot x} n^{-3/2}\chi(x/n)$.
+\begin{align}
+    \ps{\psi_n}{\phi} &= \int \psi_n \phi \\
+    &= \int e^{ik \cdot x} n^{-3/2}\chi(x/n) \phi \\
+    &= n^{-3} \int e^{ik \cdot x} \chi(x/n) \phi \\
+\end{align}
+
+
+
+
+
+\newpage
+\subsection{Exo 1.31}
+
+On a
+\begin{align}
+    \int_{\R^d} \frac{u(x)^2}{|x|^2} dx \leq b \int_{\R^d} |\nabla u(x)|^2 dx
+\end{align}
+
+Et on cherce le meilleur $b$ (le plus petit).
+
+\begin{align}
+    \frac{1}{\alpha^2} \int_{\R^d} |\nabla u(x)|^2 dx &=
+    \frac{1}{\alpha^2} \int_{\R^d} |\nabla u(x/\alpha)|^2 dy
+    \quad (x = \alpha^{2/d} y, dx = \alpha^2 dy) \\
+    &= 0
+\end{align}
+
+
+
+
+$\overline A$ auto-adjoint $\donc A^*$ symétrique.
+
+$\overline A$ auto-adjoint
+$\donc \overline A = \overline A^* = A^*$.
+Et ${A^*}^* = \overline A = A^*.$
+
+Soit maintenant $A^*$ symétrique. Donc $A^* = {A^*}^* = \overline A.$
+
+Mais $A^*$ est fermé. Donc $\overline A= A^* = \overline A^*.$
+
+%\quad \square$
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,121 @@
+\usepackage[top=3cm, bottom=3cm, left=3cm, right=3cm]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{mathrsfs}
+
+\usepackage{mathtools}
+
+\usepackage{parskip}
+
+% ========================================================================
+
+\mathtoolsset{showonlyrefs}
+\numberwithin{equation}{subsection}
+
+% ========================================================================
+
+\newtheorem*{lemme}{Lemme}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{defi}{Définition}
+\newtheorem*{thm}{Théorème}
+
+% ========================================================================
+
+\newcommand{\hilbert}{\mathcal{H}}
+\newcommand{\rd}{\mathbb{R}^d}
+
+\newcommand{\et}{\text{ et }}
+
+\let\oldforall\forall
+\renewcommand{\forall}{\ \oldforall}
+
+
+
+\newcommand{\cinf}{\mathbb{C}^\infty}
+\newcommand{\cinfc}{C_c^\infty(\R^3)}
+
+\newcommand{\zedun}{]0,1[}
+
+\newcommand{\nm}[1]{\| #1 \|}
+\newcommand{\nmld}[1]{\| #1 \|_{L^2}}
+
+\newcommand{\cvld}[2]{#1 \xrightarrow{L^2} #2}
+\newcommand{\cvhd}[2]{#1 \xrightarrow{H^2} #2}
+
+\newcommand{\implique}{\Longrightarrow \quad}
+
+\newcommand{\donc}{\Longrightarrow}
+
+\newcommand{\ud}{\frac{1}{2}}
+\newcommand{\udd}[1]{\frac{1}{#1}}
+
+\newcommand{\norme}[1]{\big\| #1 \big\|}
+\newcommand{\normes}[1]{\| #1 \|}
+\newcommand{\normeld}[1]{\norme{#1}_{L^2(\mathbb{R})}}
+
+\newcommand{\normelds}[1]{\normes{#1}_{L^2}}
+
+\newcommand{\normeldd}[1]{\normes{#1}_{L^2(\mathbb{R}^d)}}
+\newcommand{\normelt}[1]{\normes{#1}_{L^2(\mathbb{R}^3)}}
+\newcommand{\normeq}[1]{\norme{#1}_{Q(H)}}
+
+\newcommand{\normeli}[1]{\normes{#1}_{L^\infty(\mathbb{R}^3)}}
+
+\newcommand{\normeh}[1]{\norme{#1}_\hilbert}
+\newcommand{\normehs}[1]{\normes{#1}_\hilbert}
+
+\newcommand{\dx}{\frac{d}{dx}}
+\newcommand{\ddx}{\frac{d^2}{dx^2}}
+\newcommand{\dd}[1]{\frac{d^2}{d{#1^2}}}
+\newcommand{\du}{\frac{d}{du}}
+
+\newcommand{\dig}{\text{div}}
+
+\newcommand{\ftc}[1]{\frac{1}{(2\pi)^{\frac{#1}{2}}}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+\newcommand{\inn}[1]{{#1 \in \mathbb{N}}}
+
+\newcommand{\ldr}{L^2(\mathbb{R})}
+\newcommand{\ldrd}{L^2(\mathbb{R}^d)}
+
+\newcommand{\ldrt}{L^2(\mathbb{R}^3)}
+\newcommand{\ldri}{L^\infty(\mathbb{R}^3)}
+\newcommand{\ldrs}{L^2}
+
+\newcommand{\ps}[2]{\left( #1, #2 \right)}
+\newcommand{\psh}[2]{\ps{#1}{#2}_\hilbert}
+\newcommand{\psl}[2]{\ps{#1}{#2}_{\ldrd}}
+
+\newcommand{\pslt}[2]{\ps{#1}{#2}_{\ldrt}}
+\newcommand{\pslts}[2]{\ps{#1}{#2}_{\ldrs}}
+
+\newcommand{\pslto}[2]{\overline{\ps{#1}{#2}}_{\ldrt}}
+\newcommand{\psltso}[2]{\overline{\ps{#1}{#2}}_{\ldrs}}
+
+
+\newcommand{\hod}{H_\text{oh,d}}
+\newcommand{\hodd}[1]{H_\text{oh,#1}}
+\newcommand{\hodi}{\hod^{-1}}
+\newcommand{\hoo}{H_\text{oh,1}}
+
+\newcommand{\suite}[1]{({#1}_n)_\inn{n}}
+\newcommand{\suited}[2]{({#1}_n^{(#2)})_\inn{n}}
+
+\newcommand{\limb}{\lim_{R \rightarrow \infty}}
+
+\newcommand{\schwartz}{\mathcal{S}(\R^3)}
+
+\newcommand{\T}{\mathcal{T}}
+
+\newcommand{\psis}{\psi_\sigma}
+
+\newcommand{\psih}{\hat{\psi}_\sigma}

@@ -1,0 +1,70 @@
+\usepackage[top=3cm, bottom=3cm, left=3cm, right=3cm]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{mathrsfs}
+
+\usepackage{mathtools}
+
+\usepackage{parskip}
+
+% ========================================================================
+
+\mathtoolsset{showonlyrefs}
+\numberwithin{equation}{subsection}
+
+% ========================================================================
+
+\newtheorem*{lemme}{Lemme}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{defi}{Définition}
+\newtheorem*{thm}{Théorème}
+
+% ========================================================================
+
+\newcommand{\hilbert}{\mathcal{H}}
+\newcommand{\rd}{\mathbb{R}^d}
+
+\newcommand{\et}{\text{ et }}
+
+\let\oldforall\forall
+\renewcommand{\forall}{\ \oldforall}
+
+
+\newcommand{\ps}[2]{\langle #1, #2 \rangle}
+
+\newcommand{\cinf}{\mathbb{C}^\infty}
+\newcommand{\cinfc}{\mathbb{C}_c^\infty}
+
+\newcommand{\zedun}{]0,1[}
+
+\newcommand{\nm}[1]{\| #1 \|}
+\newcommand{\nmld}[1]{\| #1 \|_{L^2}}
+
+\newcommand{\cvld}[2]{#1 \xrightarrow{L^2} #2}
+\newcommand{\cvhd}[2]{#1 \xrightarrow{H^2} #2}
+
+\newcommand{\implique}{\Longrightarrow \quad}
+
+\newcommand{\donc}{\Longrightarrow}
+
+\newcommand{\ud}{\frac{1}{2}}
+
+\newcommand{\norme}[1]{\| #1 \|}
+\newcommand{\normeld}[1]{\norme{#1}_{L^2(\mathbb{R})}}
+\newcommand{\normeq}[1]{\norme{#1}_{Q(H)}}
+
+\newcommand{\dx}{\frac{d}{dx}}
+\newcommand{\ddx}{\frac{d^2}{dx^2}}
+\newcommand{\du}{\frac{d}{du}}
+
+\newcommand{\dig}{\text{div}}
+
+\newcommand{\ftc}[1]{\frac{1}{(2\pi)^{\frac{#1}{2}}}}
+
+\newcommand{\R}{\mathbb{R}}

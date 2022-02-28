@@ -1,0 +1,163 @@
+\section{Exercices}
+%
+%\paragraph{Hall EXO 7.1}
+%
+%AB = BA => si Ax = lx on a BAx = lBx = ABx
+%=> Bx vect propre de A avec l comme val propre
+%
+%
+%B(Ax) = l(Bx)
+%A(Bx) = l(Bx)
+%
+%ABx = tx
+%BAx = tx
+%
+%BA(Ax) = tAx
+%
+%ABx = tx
+%BAx = tx
+%
+%
+%Ax = tx
+%
+%BAx = tBx
+%
+%\paragraph{Hall EXO 7.2}
+%
+%
+%$Au = lu$
+%
+%$||(A^* - \overline l)u|| = <(A^* - \overline l)u, (A^* - \overline l)u>$
+%
+%$= <u, (A - l)(A^* - \overline l)u> = <u, (A^* - \overline l)(A - l)u>$
+%car A normale.
+%
+%$= <(A - l)u, (A - l)u> = 0$ car $Au = lu$
+%
+%
+%\paragraph{Hall EXO 7.3}
+%
+%$V \subset H, AV \subset V$
+%
+%Montres $A^* V^\perp \subset V^\perp$
+%
+%$x \in V, y \in V^\perp \implique <x, y> = 0$
+%
+%$\implique 0 = <Ax, y> = \ps{x}{A^*y} \implique A^*y \in V^\perp$
+%
+%
+%
+%\paragraph{Hall EXO 7.5}
+%
+%$A A^{-1} = A^{-1} A = I$
+%
+%$(A A^{-1})^T = (A^{-1})^* A^* = I$
+%
+%
+%\paragraph{Hall EXO 7.6}
+%
+%$U$ unitaire et $l \in \sigma(U) \implique |l| = 1$
+%
+%Soit $t, |t| \neq 1$. Montrer que $(U - t)^{-1}$ existe.
+%
+%$U - tI = -t(-U/t + I) = U(I - tU^*)$
+%
+%Et ces 2 trucs sont inversibles.
+%
+%
+%\paragraph{Hall EXO 7.7}
+%
+%$\ps{Ax}{x} \geq 0$
+%
+%Soit $l < 0$. Montrer $A - l$ inversible.
+%
+%$\ps{(A - l)x}{x} = \ps{Ax}{x} - l\ps{x}{x} > 0$ si $x \neq 0$.
+%
+%
+%
+%\paragraph{Hall EXO 8.3.1}
+%
+%$AB = I \et CA = I \implique B = C$ ???
+%
+%$\implique CAB = C \et CAB = B$ !!!!!!!
+%
+
+
+
+\paragraph{ANAH12 4.2.8}
+$$R(x)=(0, x_1, x_2, \ldots)$$
+%
+$$(R - \lambda)x = (-\lambda x_1, x_1 - \lambda x_2, x_2 - \lambda x_3, ...)
+= 0 \donc \lambda = 0 \donc x = 0$$
+$$\donc \sigma_p = \emptyset$$
+
+$$(R - \lambda)x = Rx - \lambda x = y \donc $$
+
+
+%Si $\norme{x} = 1$ on a
+$$(R - \lambda)^{-1}y = L(\frac{1}{\lambda} y)$$
+
+
+$$\ps{Rx}{y} = x_1 y_2 + x_2 y_3 + x_3 y_4 + \cdots = \ps{x}{Ly}$$
+
+
+
+$$\norme{R} = \sup_{\norme{x} = 1} \norme{Rx} = \norme{x} = 1$$
+
+
+
+\paragraph{polyspec page 25}
+
+Soit $|\lambda - 1/n| > \epsilon$.
+\begin{align}
+    \norme{(T - \lambda)x} = \norme{Tx - \lambda x}
+    &= \norme{\sum \alpha_n (\frac{1}{n} - \lambda) e_n} \\
+    &= \norme{\sum_{+} \alpha_n (\frac{1}{n} - \lambda) e_n
+    + \sum_{-} \alpha_n (\frac{1}{n} - \lambda) e_n} \\
+    %
+    &= \norme{\sum_{+} \alpha_n (\frac{1}{n} - \lambda) e_n
+    - \sum_{-} \alpha_n (\lambda - \frac{1}{n}) e_n} \\
+\end{align}
+
+\begin{align}
+    \norme{(T - \lambda)x}^2
+    &= \ps{\sum \alpha_n (\frac{1}{n} - \lambda) e_n}{\sum \alpha_n (\frac{1}{n} - \lambda) e_n} \\
+    &= \sum \alpha_n^2 (\frac{1}{n} - \lambda)^2
+    \geq \sum \alpha_n^2 \epsilon^2 \\
+    &= \epsilon^2 \sum \alpha_n^2 = \epsilon^2 \norme{x}^2
+\end{align}
+
+
+
+
+
+
+\paragraph{anspec\_exos exercice 1.2}
+$\mathcal{F}$ continue de $L^1$ sur $L^\infty$
+
+C'est à dire : $$\norme{u_n - u}_{L^1} \xrightarrow[n \to \infty]{} 0 \donc
+\norme{\hat u_n - \hat u}_{L^\infty} \xrightarrow[n \to \infty]{} 0$$
+
+\begin{align}
+    | \hat u_n - \hat u |
+    &= | \int u_n(x) e^{-ixz} - \int u(x) e^{-ixz} | \\
+    &\leq \int |u_n(x) - u(x)| \\
+    &= \norme{u_n - u}_{L^1}
+\end{align}
+
+A présent on veut montrer que $\norme{\mathcal{F}} = 1$.
+C'est-à-dire que
+\[ \sup_{\norme{u}_1 \leq 1} \norme{\mathcal{F}u}_\infty = 1. \]
+%
+Tout d'abord,
+\begin{align}
+    | \hat u | &= \left| \int u(x) e^{-ixz} \right| \\
+    &\leq \int |u(x)| = \norme{u}_{L^1} = 1
+\end{align}
+%
+Et puis on prend $u$ comme une gaussienne avec
+$\sigma = \frac{1}{\sqrt{2 \pi}}$. Sa nomrme est 1 et
+sa transformée est 1 (son max) en 0.
+
+
+

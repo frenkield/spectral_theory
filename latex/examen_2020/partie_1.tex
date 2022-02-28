@@ -1,0 +1,670 @@
+
+
+\section*{Partie I}
+
+\subsection*{Exercice 1a}
+
+\subsection*{$A$ bien définie :}
+
+% lambda reel !!
+Soit $u \in D(A)$. Notant que les $\lambda_n \ (\inn{n})$ sont
+réels, on a
+\begin{align}
+    \normeh{Au}^2 &= \psh{Au}{Au} \\
+    &= \psh{\sum_\inn{i} \lambda_i \psh{e_i}{u} e_i}
+    {\sum_\inn{j} \lambda_j \psh{e_j}{u} e_j} \\
+    &= \sum_\inn{i} \sum_\inn{j} \psh{\lambda_i \psh{e_i}{u} e_i}
+    {\lambda_j \psh{e_j}{u} e_j} \\
+    &= \sum_\inn{i} \sum_\inn{j} \lambda_i \lambda_j
+    \overline{\psh{e_i}{u}} \psh{e_j}{u}
+    \psh{e_i}{e_j} \\
+%
+    &= \sum_\inn{i} \lambda_i^2 |\psh{e_i}{u}|^2 \\
+%
+    & < \sum_\inn{i} (1 + \lambda_i^2) |\psh{e_i}{u}|^2
+    < \infty \qquad (\text{car } u \in D(A)).
+\end{align}
+
+Donc $\normeh{Au}^2 < \infty$ pout tout $u \in D(A)$, et $A$
+est alors bien définie.
+
+\subsection*{$D(A)$ dense :}
+
+Soit $u \in \hilbert$, $N \in \N$, et $\epsilon > 0$. On se donne
+une fonction $\tilde u = u_N + u_\epsilon$, où
+$u_N = \sum_{n=1}^N \ps{e_n}{u} e_n$,
+$u_\epsilon \in D(A)$ tel que
+$\normeh{u_\epsilon} < \epsilon/2$, et
+\begin{align}
+    \normeh{u - u_N} < \frac{\epsilon}{2}.
+\end{align}
+%
+Un tel $u_N$ existe car l'ensemble des sommes finies est
+dense dans $\hilbert$.
+
+Comme $u_N$ est une somme
+finie, on a $u_N \in D(A)$. Il s'ensuit que $\tilde u \in D(A)$.
+Et donc, pour tout $u \in \hilbert$ et tout $\epsilon > 0$,
+il existe une fonction $\tilde u \in D(A)$ telle que
+\begin{align}
+    \normeh{u - \tilde u} &= \normeh{u - u_N - u_\epsilon} \\
+    & \leq \normeh{u - u_N} + \normeh{u_\epsilon} < \epsilon.
+\end{align}
+%
+Donc D(A) est dense dans $\hilbert$.
+
+\textbf{$A$ symétrique :}
+
+
+Soit $u, v \in D(A)$. En exprimant $v$ avec la base
+hilbertienne, on a
+\begin{align}
+    \psh{Au}{v} &= \psh{\sum_\inn{i} \lambda_i \psh{e_i}{u} e_i}
+    {\sum_\inn{j} \psh{e_j}{v} e_j} \\
+    &= \sum_\inn{i} \sum_\inn{j} \lambda_i
+    \overline{\psh{e_i}{u}} \psh{e_j}{v} \psh{e_i}{e_j} \\
+    &= \sum_\inn{i} \lambda_i \overline{\psh{e_i}{u}} \psh{e_i}{v} \\
+    &= \sum_\inn{i} \overline{\psh{e_i}{u}} \lambda_i \psh{e_i}{v} \\
+%
+    &= \sum_\inn{i} \sum_\inn{j}
+    \overline{\psh{e_i}{u}} \lambda_j \psh{e_j}{v} \psh{e_i}{e_j} \\
+%
+    &= \psh{\sum_\inn{i} \psh{e_i}{u} e_i}
+    {\sum_\inn{j} \lambda_j \psh{e_j}{v} e_j} \\
+    &= \psh{u}{Av}.
+\end{align}
+%
+Donc $A$ est symétrique.
+
+% =========================================================
+
+\subsection*{Exercice 1b}
+
+Comme l'opérateur $A$ est à domaine dense son adjoint
+est bien définie. Alors soit $f \in \hilbert$ et $u$ une fonction définie par
+\begin{align}
+    u = \sum_{\inn{n}} \psh{e_n}{\frac{f}{\lambda_n - i}} e_n.
+\end{align}
+%
+Comme la suite $\suite{\lambda}$ est réelle,
+$\lambda_n - i \neq 0$ pour tout $\inn{n}$. Donc $u$ est
+bien définie.
+
+Il s'ensuit aussi que $u \in D(A)$, car
+\begin{align}
+    \sum_\inn{n} (1 + \lambda_n^2) |\psh{e_n}{u}|^2
+    &= \sum_\inn{n} (1 + \lambda_n^2) \left| \psh{e_n}
+    {\sum_{\inn{j}} \psh{e_j}{\frac{f}{\lambda_j - i}} e_j} \right|^2 \\
+    &= \sum_\inn{n} (1 + \lambda_n^2)
+    \left| \psh{e_n}{\frac{f}{\lambda_n - i}} \right|^2 \\
+    &= \sum_\inn{n} \frac{1 + \lambda_n^2}{|\lambda_n - i|^2}
+    | \psh{e_n}{f}|^2 \\
+    &= \sum_\inn{n} |\psh{e_n}{f}|^2 \\
+    &= \normeh{f}^2 < \infty.
+\end{align}
+%
+Donc
+\begin{align}
+    (A - i)u
+    &= (A - i)\sum_{\inn{n}} \psh{e_n}{\frac{f}{\lambda_n - i}} e_n \\
+    &= \sum_{\inn{n}} \psh{e_n}{\frac{f}{\lambda_n - i}}(\lambda_n - i)e_n \\
+    &= \sum_{\inn{n}} \psh{e_n}{f}e_n = f.
+\end{align}
+%
+On a ainsi montré que pour tout $f \in \hilbert$
+il existe $u \in D(A)$ telle que $(A - i)u = f$.
+C'est-à-dire, $Ran(A - i) = \hilbert$.
+
+On a évidemment un résultat pareil pour $Ran(A + i)$.
+
+Comme l'opérateur $A$ est symétrique et à domaine dense,
+par la critère fondamentale d'auto-adjonction
+$A$ est auto-adjoint.
+
+On remarque aussi que, d'après l'exercice 1a, $v \in D(A^*)$
+doit appartenir à $D(A)$ pour que $\psh{u}{Av}$ soit bien défini.
+En effet, par Cauchy-Schwarz on a
+\begin{align}
+    |\psh{u}{Av}|^2 & \leq \normehs{u}^2 \normehs{Av}^2 \\
+    &= \normehs{u}^2 \sum_\inn{i} \lambda_i^2 |\psh{e_i}{v}|^2 \\
+    & \leq \normehs{u}^2 \sum_\inn{i} (1 + \lambda_i^2) |\psh{e_i}{v}|^2.
+\end{align}
+%
+Donc, pour que $\psh{u}{Av}$ soit bien défini il faut que
+$\sum_\inn{i} (1 + \lambda_i^2) |\psh{e_i}{v}|^2 < \infty$.
+C'est-à-dire, il faut que $D(A^*) \subset D(A)$.
+
+% ==============================================================
+
+\subsection*{Exercice 1c}
+
+\subsubsection*{Étape 1}
+
+Comme $A$ est auto-adjoint on sait que son spectre est réel.
+Pour un élément $e_n$ de la base de $\hilbert$ on a, pour tout
+$\inn{n}$,
+\begin{align}
+    A e_n &= \sum_\inn{i} \lambda_i \psh{e_i}{e_n} e_i
+    = \lambda_n e_n.
+\end{align}
+%
+Donc $\{ \lambda_n, \inn{n} \} \subset \sigma(A)$.
+Si l'ensemble $\{ \lambda_n, \inn{n} \}$ ne contient pas de
+valeur d'adhérence on a aussi
+\begin{align}
+    \overline{ \{ \lambda_n, \inn{n} \} } = \{ \lambda_n, \inn{n} \}
+    \subset \sigma(A).
+\end{align}
+
+\subsubsection*{Étape 2}
+
+Soit $\lambda \in \R$ tel que
+$\lambda \not\subset \overline{\{ \lambda_n, \inn{n} \}}$.
+Cela implique qi'il existe un $\epsilon > 0$ tel que
+$|\lambda - \lambda_n| > \epsilon$ pour tout $\inn{n}$.
+Pour $u \in D(A)$ on a
+\begin{align}
+    \normeh{(A - \lambda)u}^2 &= \normeh{Au - \lambda u}^2 \\
+    &= \normeh{\sum_\inn{n} \lambda_n \psh{e_n}{u} e_n
+    - \lambda \sum_\inn{n} \psh{e_n}{u} e_n}^2 \\
+    &= \normeh{\sum_\inn{n} (\lambda_n - \lambda) \psh{e_n}{u} e_n}^2 \\
+    &= \sum_\inn{n} (\lambda_n - \lambda)^2 \left| \psh{e_n}{u} \right|^2
+    \qquad (\text{par Parseval}) \\
+%
+    & \geqslant \epsilon^2 \sum_\inn{n} \left| \psh{e_n}{u} \right|^2 \\
+    &= \epsilon^2 \normeh{u}^2.
+\end{align}
+%
+Donc $\ker(A - \lambda) = \{0\}$, et il s'ensuit que
+$\sigma(A) \subset \overline{ \{ \lambda_n, \inn{n} \} }$.
+
+\subsubsection*{Étape 3}
+
+Dans le cas où $\overline{ \{ \lambda_n, \inn{n} \} }$
+contient des valeurs d'adhérence,
+soit $\lambda \in \R$ une telle valeur d'adhérence. Il existe alors
+une sous-suite $(\lambda_{\phi(n)})_{\inn{n}}$ telle que
+$\lim_{n \rightarrow \infty} \lambda_{\phi(n)} = \lambda$.
+Pour la suite $(e_{\phi(n)})_{\inn{n}}$ on a donc
+\begin{align}
+    \lim_{n \rightarrow \infty} \normeh{(A - \lambda) e_{\phi(n)}}^2
+    &= \lim_{n \rightarrow \infty}
+    \normeh{(\lambda_{\phi(n)} - \lambda) e_{\phi(n)}}^2 \\
+%
+    &= \lim_{n \rightarrow \infty}(\lambda_{\phi(n)} - \lambda)^2 = 0.
+\end{align}
+%
+Comme $\normehs{e_n} = 1$ pour tout $\inn{n}$, $(e_{\phi(n)})_{\inn{n}}$
+est une suite de Weyl. Cela implique que $\lambda \in \sigma(A)$, et
+donc que $\overline{ \{ \lambda_n, \inn{n} \} } \subset \sigma(A)$.
+
+On a ainsi montré que
+$\sigma(A) = \overline{ \{ \lambda_n, \inn{n} \} }$.
+
+% ==============================================================
+
+
+
+
+
+
+
+\subsection*{Exercice 1d}
+
+Tout d'abord, $V$ est clairement dense dans $\hilbert$ et,
+comme $A$ est auto-adjoint, on a $\overline A = A$.
+En effect, $A = A^*$ implique que
+\begin{align}
+    \overline A = A^{**} = A^* = A.
+\end{align}
+%
+Soit $A_V$ l'opérateur de domaine $V \subset D(A)$ tel que pour
+tout $u \in D(A_V)$, on a $A_V u = Au$. Donc $A_V \subset A$.
+Comme $A$ est auto-adjoint, cela implique que l'opérateur dense
+$A_V$ est symétrique et fermable.
+
+Comme $D(A_V) = V$ est dense dans $\hilbert$, on peut définir
+l'adjoint de $A_V$. Le domaine $D(A_V^*)$ de l'adjoint de $A_V$ est
+défini par
+\begin{align}
+    D(A_V^*) = \{v \in \hilbert \ |
+    \  \exists M_v \in \R_+ \text{ tel que} \forall u \in D(A_V),
+    |\psh{A_V u}{v}| \leqslant M_v \normeh{u} \}.
+\end{align}
+
+Soit $u \in D(A_V)$ et $v \in \hilbert$. Donc il existe $\inn{N}$
+tel que $u = \sum_{i=0}^N \psh{e_i}{u} e_i$, et
+\begin{align}
+    |\psh{A_V u}{v}| &= \left| \psh{\sum_{i=0}^N \lambda_i \psh{e_i}{u} e_i}
+    {\sum_\inn{j} \psh{e_j}{v} e_j} \right| \\
+    &= \left| \sum_{i=0}^N \sum_\inn{j} \lambda_i
+    \overline{\psh{e_i}{u}} \psh{e_j}{v} \psh{e_i}{e_j} \right| \\
+    &= \left| \sum_{i=0}^N \overline{\psh{e_i}{u}} \lambda_i \psh{e_i}{v} \right|
+    < \infty.
+%    &= \sum_{i=0}^N \overline{\psh{e_i}{u}} \lambda_i \psh{e_i}{v} \\
+%%
+%    &= \sum_{i=0}^N \sum_{j=0}^N
+%    \overline{\psh{e_i}{u}} \lambda_j \psh{e_j}{v} \psh{e_i}{e_j} \\
+%%
+%    &= \psh{\sum_{i=0}^N \psh{e_i}{u} e_i}
+%    {\sum_{j=0}^N \lambda_j \psh{e_j}{v} e_j} \\
+%    &= \psh{u}{A^* v}.
+\end{align}
+%
+Comme cette somme est finie, il est bien définie pour tout
+$v \in \hilbert$. Donc $D(A_V^*) = \hilbert$.
+
+Et $A_V^*$ est symétrique car, pour tout $u,v \in \hilbert$,
+on a
+\begin{align}
+    \psh{A_V^* u}{v}
+    &= \sum_{i=0}^N \overline{\psh{e_i}{u}} \lambda_i \psh{e_i}{v} \\
+%
+    &= \sum_\inn{i} \sum_{j=0}^N
+    \overline{\psh{e_i}{u}} \lambda_j \psh{e_j}{v} \psh{e_i}{e_j} \\
+%
+    &= \psh{\sum_\inn{i} \psh{e_i}{u} e_i}
+    {\sum_{j=0}^N \lambda_j \psh{e_j}{v} e_j} \\
+    &= \psh{u}{A_V^* v}.
+\end{align}
+
+Le symétrie de $A_V^*$ implique que
+$\overline A_V$ est auto-adjoint. En effet,
+soit $u,v \in \overline A_V$. Donc $u,v \in A_V^*$ car
+$\overline A_V \subset (\overline A_V)^* = A^*$.
+Alors,
+\begin{align}
+    \psh{\overline A_V u}{v} &= \psh{u}{(\overline A_V)^* v} \\
+    &= \psh{u}{A_V^* v} \\
+    &= \psh{A_V^* u}{v} \\
+    &= \psh{u}{A_V^{**} v} \\
+    &= \psh{u}{\overline A_V v}.
+\end{align}
+%
+L'auto-adjonction de $\overline A_V$ implique que $A$ est l'unique
+extension auto-adjointe de $\overline A_V$, et donc, par
+définition, que $A_V$ est essentiellement auto-adjoint. En effet,
+soit $B$ une autre extension auto-adjointe de $\overline A_V$.
+Donc $\overline A_V \subset A$ et $\overline A_V \subset B$, et
+\begin{align}
+    B = B^* \subset (\overline A_V)^* = \overline A_V
+    \subset \overline A = A.
+\end{align}
+%
+Et donc
+\begin{align}
+    A = A^* \subset B^* = B.
+\end{align}
+%
+Donc $A \subset B$ et $B \subset A$. C'est-à-dire, $A = B$.
+
+
+%
+%On doit avoir $\overline A_V = A$ car $\overline A_V$ et $A$ sont
+%les deux des extensions auto-adjointes de $A_V$.
+%En effet, soit $B$ une autre extension auto-adjoint de $A_V$.
+%On a donc $A_V \subset B$ et
+%\begin{align}
+%    B = B^* \subset A_V^* = \overline{A_V}^* = A.
+%\end{align}
+%On a donc $B \subset A$ et $A = A^* \subset B^* = B$. Autrement dit,
+%$B = A$.
+
+
+
+
+
+
+
+Donc $A_V$ est essentiellement auto-adjoint (avec $A$ comme
+l'unique extension auto-adjointe) et
+$\overline{A_V}u = Au = \overline Au$ pour tout $u \in V$.
+Alors, $V = D(A_V)$ est un c\oe{}ur pour $A$.
+
+
+
+
+
+
+
+
+
+% ==============================================================
+
+\subsection*{Exercice 1e}
+
+Par le point 2 des "notations, rappels et compléments", les
+fonctions propres $(\phi_n)_\inn{n}$ de l'opérateur $\hoo$
+forme une base hilbertienne de $\ldr$.
+
+Par le point 4 des "notations, rappels et compléments", on peut
+définir une base de $\ldrd$ à partir des
+$(\phi_n)_\inn{n}$ par
+\begin{align}
+    (\phi_{1, n_1} \otimes \cdots \otimes \phi_{d, n_d}(x))
+    &= \prod_{j=1}^d \phi_{j, n_j}(x_j).
+\end{align}
+%
+Les éléments de cette base "tensorielle" sont aussi des
+fonctions propres de $\hod$. En effet,
+\begin{align}
+    \hod \left( \prod_{j=1}^d \phi_{j, n_j}(x_j) \right)
+    &= -\ud \left( \left[ \dd{x_1} - x_1^2 \right] + \cdots
+       + \left[ \dd{x_d} - x_d^2 \right] \right)
+    \left( \prod_{j=1}^d \phi_{j, n_j}(x_j) \right) \\
+%
+    &= \left( \left[ n_1 + \ud \right] + \cdots
+    + \left[ n_d + \ud \right] \right)
+    \left( \prod_{j=1}^d \phi_{j, n_j}(x_j) \right).
+\end{align}
+%
+On voit donc que chaque $\prod_{j=1}^d \phi_{j, n_j}(x_j)$
+est une fonction propre de $\hod$ associée à la
+valeur propre $\sum_{j=1}^d (n_j + \ud)$.
+
+Alors, il existe une base hilbertienne de $\ldrd$
+formée de fonctions propres de $\hod$.
+
+% ==============================================================
+
+\subsection*{Exercice 1f}
+
+On postule que les résultats précédents concernant l'opérateur
+auto-adjoint $A$ sur un espace d'Hilbert quelconque s'appliquent
+à l'opérateur $\hod$.
+
+Cela implique immédiatement, d'après l'exercice 1b, que
+$\hod$ est auto-adjoint.
+
+D'après l'exercice 1c, le spectre de $\hod$ est donc donné par
+\begin{align}
+    \sigma{(\hod)} = \overline{ \{ \lambda_n^{(d)}, \inn{n} \} }
+    = \{ \lambda_n^{(d)}, \inn{n} \},
+\end{align}
+%
+où $\lambda_n^{(d)} = \left( \left[ n_1 + \ud \right] + \cdots
++ \left[ n_d + \ud \right] \right)$ avec $(n_1, \dots, n_d) \in \N^d$.
+Comme l'ensemble des tuples
+$\{(n_1, \dots, n_d)\in \N^d \}$ est dénombrable, il existe une
+bijection entre $n$ et $\{(n_1, \dots, n_d)\in \N^d\}$. Les
+$\lambda_n^{(d)}$ sont alors bien définis.
+
+D'apres le corollaire 4.9 du polycopié du cours, on sait
+que tout opérateur auto-adjoint satisfait
+$\sigma(A) \subset [\alpha, +\infty[$ si et seulement si
+$\psh{u}{Au} \geqslant \alpha \normeh{A}^2$ pour tout $v \in D(A)$.
+
+Donc, comme $\hod$ est auto-adjoint, il s'ensuit que
+$\hod \geqslant \frac{d}{2}$. En
+effect, le plus petit valeur propre de $\hod$ est donné par
+\begin{align}
+    \lambda_0^{(d)} = \underbrace{ \left[ 0 + \ud \right] + \cdots
+    + \left[ 0 + \ud \right] }_{d \text{ termes}} = \frac{d}{2}.
+\end{align}
+%
+Et par le corollaire 4.9,
+$\sigma(\hod) \subset [\frac{d}{2}, +\infty [$ implique que
+$\psl{v}{\hod v} \geqslant \frac{d}{2} \normeldd{v}$ pour
+tout $v \in D(\hod)$.
+
+Pour montrer que $\hod$ est à résolvante compacte on note
+tout d'abord que $0 \not\in \sigma(\hod)$, et donc que $\hod$
+est inversible. Avec la notation plus abstraite de l'exercice
+1a on pose
+\begin{align}
+    \hod^{-1} u = \sum_{\inn{n}} \psh{e_n}{\frac{u}{\lambda_n}} e_n
+    = \sum_{\inn{n}} \frac{1}{\lambda_n} \psh{e_n}{u} e_n.
+\end{align}
+%
+Par un calcul directe on montre que cette définition est justifiée :
+\begin{align}
+    \hodi \hod u &= \hod^{-1} \sum_{\inn{n}} \lambda_n \psh{e_n}{u} e_n \\
+    &= \sum_{\inn{n}} \frac{1}{\lambda_n} \psh{e_n}{
+        \sum_{\inn{i}} \lambda_i \psh{e_i}{u} e_i} e_n \\
+%
+    &= \sum_{\inn{n}} \frac{1}{\lambda_n} \sum_{\inn{i}}  \psh{e_n}{
+        \lambda_i \psh{e_i}{u} e_i} e_n \\
+%
+    &= \sum_{\inn{n}} \frac{1}{\lambda_n}
+    \lambda_n \psh{e_n}{u} e_n \\
+%
+    &= \sum_{\inn{n}} \psh{e_n}{u} e_n = u.
+\end{align}
+%
+Comme noté dans la corrigé de la question 8 de l'examen de 2018,
+l'opérateur $\hodi$ est la limite au sens de la norme
+d'opérateur d'une suite $(H_N^{-1})_\inn{N}$ d'opérateurs
+de rangs finis définis par
+\begin{align}
+    H_N^{-1} = \sum_{n = 0}^N \frac{1}{\lambda_n} \psh{e_n}{u} e_n.
+\end{align}
+Comme ces opérateurs sont de rangs finis, ils sont compacts.
+Donc la limite de la suite $\hodi$ est compact.
+La résolvante $R_0(\hod) = \hodi$ est alors aussi compact, et donc
+par définition $\hod$ est à résolvante compacte.
+
+Finalement, pour terminer, il faut montrer que l'opérateur $\hod$
+coïncide avec l'opérateur plus abstrait $A$ de l'exercice 1a.
+
+D'après l'exercice 1e on sait que la suite $\suited{\phi}{d}$ forme
+une base de $\ldrd$. Soit $\suited{\lambda}{d}$ les valeurs propres de
+$\hod$ définies ci-dessus et $\suited{\phi}{d}$
+les fonctions propres correspondantes définies par
+\begin{align}
+    \phi_n^{(d)} = \prod_{j=1}^d \phi_{j, n_j}(x_j),
+\end{align}
+avec une bijection convenable entre $n$ et les tuples
+$\{(n_1, \dots, n_d) \in \N^d\}$.
+
+L'action de l'opérateur $\hod$ sur $D(\hod)$ coïncide
+clairement avec l'action de $A$ sur $D(A)$.
+En effect, soit $u \in D(\hod)$. Donc
+\begin{align}
+    \hod u &= \hod \sum_{\inn{n}} \psl{\phi_n^{(d)}}{u} \phi_n^{(d)} \\
+    &= \sum_{\inn{n}} \lambda_n^{(d)} \psl{\phi_n^{(d)}}{u} \phi_n^{(d)}.
+\end{align}
+%
+Comme $u \in D(\hod)$, $\normeldd{\hod u}^2 < \infty$. Donc
+\begin{align}
+    \normeldd{\hod u}^2
+%
+    &= \sum_\inn{n} {\lambda_n^{(d)}}^2
+    \left| \psl{\phi_n^{(d)}}{u} \right|^2 < \infty.
+\end{align}
+%
+Il s'ensuit alors que
+\begin{align}
+    \sum_\inn{n} (1 + {\lambda_n^{(d)}}^2)
+    \left| \psl{\phi_n^{(d)}}{u} \right|^2 < \infty.
+\end{align}
+%
+Donc les 2 domaines $D(\hod)$ et $D(A)$ coïncident. On a
+ainsi montré que les opérateurs $\hod$ et $A$
+coïncident. Ceci implique que tous les résultats
+ci-dessus concernant l'opérateur abstrait $A$ s'appliquent également
+à l'opérateur $\hod$.
+
+%========================================================
+
+\subsection*{Exercice 1g}
+
+Comme $\hod$ est à résolvante compacte, par le corollaire 5.21
+du polycopié du cours, son spectre
+essentiel est vide :
+\begin{align}
+    \sigma_{\text{ess}}(\hod) = \emptyset.
+\end{align}
+%
+Le spectre discret $\sigma_{\text{disc}}(\hod)$ est le complémentaire
+du spectre essentiel dans $\sigma(\hod)$. Comme
+$\sigma_{\text{ess}}(\hod)$
+est vide on a
+\begin{align}
+    \sigma_{\text{disc}}(\hod) = \sigma(\hod)
+    = \left\{ n_1 + \cdots + n_d + \frac{d}{2}, (n_1, \dots, n_d)
+    \in \N^d \right\}.
+\end{align}
+%
+On remarque aussi que le spectre discret est définie comme
+l'ensemble des valeurs propres isolées de multiplicité finie.
+Comme chaque valeur propre de $\hod$ est de multiplicité $d$,
+le spectre discret est égale au spectre entier.
+
+Le spectre ponctuel $\sigma_{\text{ponc}}(\hod)$ est l'ensemble
+de toutes les valeurs propres de $\hod$. Il est donc égale
+au spectre discret :
+\begin{align}
+    \sigma_{\text{ponc}}(\hod) = \sigma_{\text{disc}}(\hod)
+    = \left\{ n_1 + \cdots + n_d + \frac{d}{2}, (n_1, \dots, n_d)
+    \in \N^d \right\}.
+\end{align}
+
+Le spectre continu $\sigma_{\text{cont}}(\hod)$ est le complémentaire
+du spectre ponctuel dans $\sigma(\hod)$. Comme
+$\sigma_{\text{ponc}}(\hod) = \sigma(\hod)$, le spectre continu
+est vide :
+\begin{align}
+    \sigma_{\text{cont}}(\hod) = \emptyset.
+\end{align}
+
+%========================================================
+
+\subsection*{Exercice 1h}
+
+Soit $\psi_0(x_1,x_2) = (1 + x_1 + 2x_2 + 3x_1 x_2)
+e^{-(x_1^2 + x_2^2) / 2}$. On remarque tout d'abord que
+$\psi_0(x_1,x_2)$ est une combinaison linéaire des fonctions
+propres de $\hodd{2}$ :
+\begin{align}
+    \psi_0(x_1,x_2)
+    &= \pi^\ud \phi_0^{(2)}
+    + \frac{1}{4} \pi^\ud \phi_1^{(2)}
+    + \frac{1}{2} \pi^\ud \phi_2^{(2)}
+    + \frac{3}{16} \pi^\ud \phi_3^{(2)} \\
+%
+    &= \pi^\ud \left( \phi_0^{(2)}
+    + \frac{1}{4} \phi_1^{(2)}
+    + \frac{1}{2} \phi_2^{(2)}
+    + \frac{3}{16} \phi_3^{(2)} \right),
+\end{align}
+%
+où
+\begin{align}
+    \phi_0^{(2)} = \phi_{1,0}\phi_{2,0}
+    &= \pi^{-\ud} e^{-\frac{x_1^2 + x_2^2}{2}}, \\
+    \phi_1^{(2)} = \phi_{1,1}\phi_{2,0}
+    &= 4 \pi^{-\ud} x_1 e^{-\frac{x_1^2 + x_2^2}{2}}, \\
+    \phi_2^{(2)} = \phi_{1,0}\phi_{2,1}
+    &= 4 \pi^{-\ud} x_2 e^{-\frac{x_1^2 + x_2^2}{2}}, \\
+    \phi_3^{(2)} = \phi_{1,1}\phi_{2,1}
+    &= 16 \pi^{-\ud} x_1 x_2 e^{-\frac{x_1^2 + x_2^2}{2}}.
+\end{align}
+%
+Comme $d = 2$, les valeurs propres (dégénérées) de $\hodd{2}$ sont de
+la forme
+\begin{align}
+    \sum_{j=1}^d n_j + \frac{d}{2} = n_0 + n_1 + 1.
+\end{align}
+%
+Donc les valeurs propres correspondantes aux fonctions
+propres ci-dessus sont définies par
+\begin{align}
+    \lambda_0^{(2)} &= 0 + 0 + 1 = 1, \\
+    \lambda_1^{(2)} &= 1 + 0 + 1 = 2, \\
+    \lambda_2^{(2)} &= 0 + 1 + 1 = 2, \\
+    \lambda_3^{(2)} &= 1 + 1 + 1 = 3.
+\end{align}
+%
+Il s'ensuit que
+\begin{align}
+    \hodd{2} \psi_0(x_1,x_2)
+    &= \pi^\ud \hodd{2} \left( \phi_0^{(2)}
+    + \frac{1}{4} \phi_1^{(2)}
+    + \frac{1}{2} \phi_2^{(2)}
+    + \frac{3}{16} \phi_3^{(2)} \right) \\
+%
+    &= \pi^\ud \left( \phi_0^{(2)}
+    + \frac{1}{2} \phi_1^{(2)}
+    + \phi_2^{(2)}
+    + \frac{9}{16} \phi_3^{(2)} \right).
+\end{align}
+%
+Et on en déduit que
+\begin{align}
+    \hodd{2}^n \psi_0(x_1,x_2)
+    &= \pi^\ud \hodd{2}^n \left( \phi_0^{(2)}
+    + \frac{1}{4} \phi_1^{(2)}
+    + \frac{1}{2} \phi_2^{(2)}
+    + \frac{3}{16} \phi_3^{(2)} \right) \\
+%
+    &= \pi^\ud \left( \phi_0^{(2)}
+    + \frac{2^n}{4} \phi_1^{(2)}
+    + \frac{2^n}{2} \phi_2^{(2)}
+    + \frac{3 \times 3^n}{16} \phi_3^{(2)} \right).
+\end{align}
+%
+Or, comme $\hodd{2}^n \psi_0(x_1,x_2)$ est bien défini pour
+tout $\inn{n}$, d'après le remarque 4.40 du polycopié du cours
+concernant les series et le calcul fonctionnelle, on peut calculer
+$e^{-it \hodd{2}} \psi_0(x_1,x_2)$ avec une série :
+\begin{align}
+    e^{-it \hodd{2}} \psi_0(x_1,x_2)
+    &= \sum_{\inn{n}} \frac{(it)^n}{n!} \hodd{2}^n \psi_0(x_1,x_2) \\
+%
+    &= \pi^\ud \sum_{\inn{n}} \frac{(it)^n}{n!}
+    \left( \phi_0^{(2)}
+    + \frac{2^n}{4} \phi_1^{(2)}
+    + \frac{2^n}{2} \phi_2^{(2)}
+    + \frac{3 \times 3^n}{16} \phi_3^{(2)} \right) \\
+%
+    &= \pi^\ud \left(
+    e^{-it} \phi_0^{(2)}
+    + \udd{4} e^{-2it} \phi_1^{(2)}
+    + \udd{2} e^{-2it} \phi_2^{(2)}
+    + \frac{3}{16} e^{-3it} \phi_3^{(2)} \right) \\
+%
+    &= \left(
+    e^{-it}
+    + \udd{4} e^{-2it} 4 x_1
+    + \udd{2} e^{-2it} 4 x_2
+    + \frac{3}{16} e^{-3it} 16 x_1 x_2
+    \right) e^{-\frac{x_1^2 + x_2^2}{2}} \\
+%
+    &= \left(
+    e^{-it}
+    + e^{-2it} x_1
+    + 2 e^{-2it} x_2
+    + 3 e^{-3it} x_1 x_2
+    \right) e^{-\frac{x_1^2 + x_2^2}{2}}.
+\end{align}
+
+
+
+
+
+
+
+
+
+
+
+
+
+%&= \pi^\ud \sum_{\inn{n}} \frac{(it)^n}{n!}
+%\left( \phi_0^{(2)}
+%+ 2^{n-2} \phi_1^{(2)}
+%+ 2^{n-1} \phi_2^{(2)}
+%+ \frac{3^{n+1}}{16} \phi_3^{(2)} \right) \\
+
+
+% ****************************************************
+
+%L’espace Dpaq contient Cc8pRq et est donc dense dans L2pRq. L’opérateur a est donc à
+%domaine dense, et on peut donc définir son adjoint. On rappelle
+
+% utilises coeur !!!!!!!!!!!!
+
+% mais cette formule ne fait vraiment sens que si v \in D(A^n)
+% page 131
+
+% peut-etre plus de calcul dans 1h

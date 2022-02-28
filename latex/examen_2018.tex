@@ -1,0 +1,337 @@
+\section{Examen 2018}
+
+\paragraph{I.1}
+
+\begin{align}
+    D(a) &= \{ u \in L^2, u' + xu \in L^2 \} \\
+    au &= \frac{1}{\sqrt{2}} (u' + xu)
+\end{align}
+
+%Si $u = e^{-\frac{1}{2} x^2}$...
+%\begin{align}
+%    u' + xu &= e^{-\frac{1}{2} x^2} (-x) + x e^{-\frac{1}{2} x^2} \\
+%    &= -x e^{-\frac{1}{2} x^2} + x e^{-\frac{1}{2} x^2} = 0
+%\end{align}
+%
+%Ou si $u = e^{\frac{1}{2} x^2}$, et $u = 0$ si $x < 0$,
+%\begin{align}
+%    -u' + xu &= -e^{\frac{1}{2} x^2} (x) + x e^{\frac{1}{2} x^2} \\
+%    &= -x e^{\frac{1}{2} x^2} + x e^{\frac{1}{2} x^2} = 0
+%\end{align}
+
+%En fait, $u' + xu \in L^2 \Rightarrow -u' + xu \in L^2$
+
+Soit $u \in D(a)$ et $v \in D(a^*)$. Soit $c = \frac{1}{\sqrt{2}}$.
+\begin{align}
+    \int au v &= c \int (u' + xu) v
+    = c \int u'v + c \int xuv \\
+    &= c[uv]_{-\infty}^\infty - c \int uv' + c \int xuv \\
+    &= -c \int uv' + c \int xuv \\
+    \implique & a^* u = \frac{1}{\sqrt{2}} (-u' + xu)
+\end{align}
+
+
+%
+%
+
+\paragraph{I.2}
+
+Soit $u \in S(\mathbb{R})$.
+\begin{align}
+    a^* a u &= \ud a^* (u' + xu) \\
+    &= \ud (-d/dx + x) (u' + xu) \\
+    &= \ud (-u'' - (xu)' + xu' + x^2u) \\
+    &= \ud (-u'' - u - xu' + xu' + x^2u) \\
+    &= \ud (-u'' - u + x^2u)
+\end{align}
+
+\begin{align}
+    a a^* u &= \ud a (-u' + xu) \\
+    &= \ud (d/dx + x) (-u' + xu) \\
+    &= \ud (-u'' + (xu)' - xu' + x^2u) \\
+    &= \ud (-u'' + u + xu' - xu' + x^2u) \\
+    &= \ud (-u'' + u + x^2u)
+\end{align}
+
+Et donc,
+\begin{align}
+    (a^* a - a a^*) u &= \ud (-u'' - u + x^2u) - \ud (-u'' + u + x^2u) \\
+    &= \ud (-u'' - u + x^2u +u'' - u - x^2u) \\
+    &= -u
+\end{align}
+
+\paragraph{I.3}
+
+Soit $u, v \in S(\mathbb{R})$. Formellement, $(a^*a + \ud)^T = a^*a + \ud$.
+\begin{align}
+    \int (a^* a + \ud) u v = \text{ fastoche}
+\end{align}
+
+\begin{align}
+    \int (a^* a + \ud) u u &= \int \ud (-u'' - u' + x^2u) + \ud u^2 \\
+    &= \int \ud (-u'' - u + x^2u)u + \ud u^2 \\
+    &= \ud \int -u''u - u^2 + x^2u^2 + u^2 \\
+    &= \ud \int u'u' + x^2u^2 \\
+    &= \ud \int (u')^2 + x^2u^2 \geq 0
+\end{align}
+
+\paragraph{I.4a}
+
+Soit $u \in Q(H)$. Donc $\normeq{u}^2 = (u, H_0 u) + \normeld{u}^2 < \infty$.
+Ce qui implique que $u \in L^2$ (car $H_0$ est positif). Et,
+\begin{align}
+    \infty > (u, H_0 u) &= \int u H_0 u \\
+    &= \int u (a^* a + \ud) u \\
+    &= \ud \int (u')^2 + x^2u^2 \\
+    \implique & \int (u')^2 = \normeld{u'}^2 < \infty \\
+    \et \implique & \int x^2u^2 = \normeld{xu}^2 < \infty
+\end{align}
+
+
+
+Or, soit $u \in H^1, xu \in L^2$. On a évidemment $u, u' \in L^2$.
+Et donc,
+\begin{align}
+    (u, H_0 u) &= \ud \int (u')^2 + x^2u^2 + u^2 < \infty
+%    \normeq{u}^2 &= (u, H_0 u) + \normeld{u}^2
+\end{align}
+%
+Donc, $\normeq{u} < \infty$. Mais est-ce que l'on a $u$ dans
+le complété de $D(H_0)$ ? Mais Schwartz est dense dans $L^2$...
+
+\paragraph{I.4b}
+
+??????????????????????????
+
+\paragraph{I.5a}
+
+\begin{align}
+    a \phi_0 &= (d/dx + x) \phi_0 \\
+    &= \alpha ( -x e^{-x^2 / 2} + x e^{-x^2 / 2} ) = 0
+\end{align}
+
+\paragraph{I.5b}
+
+On sait deja que $[a^*, a] = -1$. On suppose que
+$[(a^*)^{n}, a] = -n(a^*)^{n-1}$. Et puis,
+\begin{align}
+[(a^*)^{n+1}, a]
+    &= [a^* (a^*)^{n}, a] \\
+    &= a^* [(a^*)^{n}, a] + [a^*, a] (a^*)^{n} \\
+    &= a^* (-n(a^*)^{n-1}) - (a^*)^{n} \\
+    &= -n(a^*)^n - (a^*)^{n} \\
+    &= -(n+1) (a^*)^n
+\end{align}
+
+\paragraph{I.5c}
+
+\begin{align}
+    \phi_n &= \frac{1}{\sqrt{n!}} (a^*)^n \phi_0 \\
+    \phi_{n-1} &= \frac{1}{\sqrt{{n-1}!}} (a^*)^{n-1} \phi_0 \\
+    \implique \phi_n &= \frac{\sqrt{{n-1}!}}{\sqrt{n!}} a^* \phi_{n-1} \\
+    &= \frac{1}{\sqrt{n}} a^* \phi_{n-1}
+\end{align}
+
+
+\begin{align}
+    H &= a^* a + \ud \\
+    a^* a - a a^* &= -1 \\
+    H - \ud - a a^* &= -1 \\
+    a a^* - 1 &= H - \ud \\
+    a a^* &= H + \ud
+\end{align}
+
+\begin{align}
+    H \phi_n &= H \frac{1}{\sqrt{n}} a^* \phi_{n-1} \\
+    &= \frac{1}{\sqrt{n}} (a^* a + \ud) a^* \phi_{n-1} \\
+    &= \frac{1}{\sqrt{n}} (a^* a a^* + \ud a^*) \phi_{n-1} \\
+    &= \frac{1}{\sqrt{n}} (a^* (H + \ud) + \ud a^*) \phi_{n-1} \\
+    &= \frac{1}{\sqrt{n}} a^*(H + 1) \phi_{n-1} \\
+    &= \frac{1}{\sqrt{n}} a^*(n - \ud + 1) \phi_{n-1} \\
+    &= (n + \ud) \frac{1}{\sqrt{n}} a^* \phi_{n-1} \\
+    &= (n + \ud) \phi_n
+\end{align}
+
+\paragraph{I.5d}
+
+\begin{align}
+    \norme{\phi_n}^2 &= \ps{\phi_n}{\phi_n} \\
+    &= \frac{1}{n} \ps{a^* \phi_{n-1}}{a^* \phi_{n-1}} \\
+    &= \frac{1}{n} \ps{a a^* \phi_{n-1}}{\phi_{n-1}} \\
+    &= \frac{1}{n} \ps{(H + \ud) \phi_{n-1}}{\phi_{n-1}} \\
+    &= \frac{1}{n} \ps{((n-1 + \ud) + \ud) \phi_{n-1}}{\phi_{n-1}} \\
+    &= \frac{1}{n} \ps{n \phi_{n-1}}{\phi_{n-1}} \\
+    &= \ps{\phi_{n-1}}{\phi_{n-1}}  = 1
+\end{align}
+
+\begin{align}
+    \ps{\phi_i}{\phi_j}
+    &= \ps{\frac{1}{\sqrt{i!}} (a^*)^i \phi_0}{\frac{1}{\sqrt{j!}} (a^*)^j \phi_0} \\
+    &= \frac{1}{\sqrt{i!}\sqrt{j!}} \ps{(a^*)^i \phi_0}{(a^*)^j \phi_0} \\
+    &= \frac{1}{\sqrt{i!}\sqrt{j!}} \ps{a^j (a^*)^i \phi_0}{\phi_0} \\
+    &= \frac{1}{\sqrt{i!}\sqrt{j!}} \ps{a^{j-i} a^i (a^*)^i \phi_0}{\phi_0} \\
+    &= \frac{1}{\sqrt{i!}\sqrt{j!}} \ps{a^{j-i} (a a^*)^i \phi_0}{\phi_0} \\
+    &= \frac{1}{\sqrt{i!}\sqrt{j!}} \ps{a^{j-i} (a^* a + 1)^i \phi_0}{\phi_0} \\
+    &= \frac{1}{\sqrt{i!}\sqrt{j!}} \ps{a^{j-i} \phi_0}{\phi_0} \\
+    &= 0
+\end{align}
+
+\paragraph{I.6a}
+
+\begin{align}
+    & f_g(z) = \int g(x) \phi_0(x) e^{xz} \\
+    &= \pi^{-1/4} \int g(x) e^{-x^2 / 2} e^{xz}
+\end{align}
+%
+\begin{align}
+    \frac{f_g(z + h) - f_g(z)}{h} &=
+    \frac{1}{h} [ \int g(x) \phi_0(x) e^{x(z+h)} - \int g(x) \phi_0(x) e^{xz} ] \\
+    &= \frac{1}{h} \int g(x) \phi_0(x) [e^{x(z+h)} - e^{xz}] \\
+    &= \frac{1}{h} \int g(x) \phi_0(x) e^{xz} [e^{xh} - 1]
+\end{align}
+
+$\frac{1}{h} e^{x(z+h)} - \frac{1}{h} e^{xz} = e^{xz} \frac{1}{h} ( e^{xh} - 1)$
+$= c \frac{1}{h} \sum_1 {xh}^n / n! = c (x + \sum_1 x^n h^{n-1} / n!) $, ...
+
+Et donc par convergence dominée ???
+
+Ou.........
+\begin{align}
+    & \frac{d}{dz} f_g(z) = \int g(x) \phi_0(x) \frac{d}{dz} e^{xz}
+    = \int g(x) \phi_0(x) x e^{xz} \\
+    &= c \int x g(x) e^{-x^2 / 2} e^{xz} = c \int x g(x) e^{-x^2 / 2 + xz} \\
+    &= c \int x g(x) e^{-x^2 / 2 + xz} \leq c \norme{g} \norme{x e^{-x^2 / 2 + xz}} \\
+    &= c \norme{g} \norme{x e^{-\ud (x-z)^2} e^{z^2 / 2}} < \infty
+\end{align}
+
+\paragraph{I.6b}
+
+\begin{align}
+    & f_g(z) = \int g(x) \phi_0(x) e^{xz} \\
+    &= \pi^{-1/4} \int g(x) e^{-x^2 / 2} e^{xz} \\
+%
+    \implique & f_g(-iu) = \pi^{-1/4} \int g(x) e^{-x^2 / 2} e^{-iux} \\
+    \implique & F \left[ g(x) e^{-x^2 / 2} \right] = 0 \\
+    \implique & g(x) \in L^2 = 0
+\end{align}
+
+\paragraph{I.6c}
+
+$\ps{g}{\phi_0} = 0 \Longrightarrow f_g(0) = 0$. Et...
+\begin{align}
+    \phi_1 = a^* \phi_0 &= (-d/dx + x) \phi_0 \\
+    &= \alpha ( x e^{-x^2 / 2} + x e^{-x^2 / 2} ) \\
+    &= 2\alpha x e^{-x^2 / 2} = 2x \phi_0
+\end{align}
+
+Et puis...
+%
+\begin{align}
+    f_g^{n+1}(z) &= \int g(x) \phi_0(x) \frac{d^{n+1}}{dz^{n+1}} e^{xz}
+    = \int g(x) \phi_0(x) \frac{d^{n}}{dz^{n}} (x e^{xz}) \\
+    &= \int g(x)    x \phi_0(x)    \frac{d^{n}}{dz^{n}} e^{xz}
+    = \ud \int g(x) \phi_1(x) \frac{d^{n}}{dz^{n}} e^{xz} \\
+    &= ... = c \int g(x) \phi_n(x) e^{xz} \\
+    \implique & f_g^{n+1}(0) = c \int g(x) \phi_n(x) = 0
+\end{align}
+
+\paragraph{I.6d}
+
+On a $g$ orthogonal à tous les $\phi_n$, implique $f_g = 0$, implique
+$g = 0$.
+
+Donc $vect \{ \phi_n \}^\perp = \{0\}$. Et donc $vect \{ \phi_n \} = L^2$.
+
+\paragraph{I.7}
+
+Le spectre entier est $\sigma(H) \subset [0, \infty]$.
+Et c'est quoi ????????
+
+$\ps{u}{Hu} = \ps{u}{(a^* a + \ud)u} = \ps{au}{au}
++ \ud \ps{u}{u} \geq 0$.
+
+Soit $u (H - l)u = 0 \Longrightarrow (a^* a + \ud - l)u = 0$.
+
+On peut exprimer toute fonction avec la base. Donc soit $(u_n) \subset D(A)$
+telle que $\norme{u_n} = 1$ et $\norme{(H - \lambda) u_n} \rightarrow 0$.
+Donc,
+\begin{align}
+    & \norme{(H - \lambda) u_n}^2 = \norme{(H - (t + \ud + \alpha)) u_n}^2 \\
+    & \norme{(H - \lambda) u_n}^2
+    = \norme{(H - (t + \ud) - \alpha) \sum u_{nk} \phi_k}^2 \quad (\alpha \in ]0,1[)\\
+%
+& \ps{(H - \lambda) u_n}{(H - \lambda) u_n}
+\end{align}
+
+
+
+Spectre ponctuel est juste les valeurs propres :
+$\sigma_p(H) = \{n + \ud : n \in \mathbb{N} \}$. Il n'y a
+pas d'autre valeur propre car les vecteurs propres forment
+une base de $L^2$.
+
+Spectre continu est le complémentaire du spectre pontuel :
+$\sigma(H) \backslash \sigma_p(H) $.
+
+Spectre discret est l’ensemble des valeurs propres isolées de
+multiplicité finie - sous-ensemble du spectre ponctuel. Donc,
+$\sigma_d(H) = \sigma_p(H)$ car chaque valeur propre est isolé
+et de multiplicité 1.
+
+Spectre essentiel est le complémentaire du spectre discret,
+qui est en fait fermé. Et $\sigma_d(H)$ et fermé. Donc on doit
+avoir $\sigma_{ess} = \emptyset$.
+
+
+$H = a^* a + \ud$.
+
+Est-ce que $\phi_n \rightharpoonup 0$ ? Ouais mais on n'en a pas
+$\norme{(H - \lambda) u_n} \rightarrow 0$.
+
+
+\newpage
+
+\paragraph{I.8}
+
+$H$ est inversible car il est positif défini.
+
+$\ps{u}{Hu} = \ps{u}{(a^* a + \ud)u} = \ps{au}{au}
++ \ud \ps{u}{u} = 0 \Longrightarrow u = 0$.
+
+$H$ est compact par corollaire 5.21, car $\sigma_{ess} = \emptyset$.
+
+
+
+\paragraph{I.9}
+
+
+
+
+On a déjà $\phi_n = \frac{1}{\sqrt{n}} a^* \phi_{n-1}$.
+Donc $a^* \phi_n = \sqrt{n+1} \phi_{n+1}$.
+
+Et
+\begin{align}
+    [a^*, a]\phi_n &= a^* a \phi_n - a a^* \phi_n
+    = a^* a \phi_n - \sqrt{n+1} a \phi_{n+1} \\
+    &= -\phi_n
+\end{align}
+
+\begin{align}
+    a \phi_n &= a \frac{1}{\sqrt{n!}} (a^*)^n \phi_0 \\
+    &= \frac{1}{\sqrt{n!}} a a^* (a^*)^{n-1} \phi_0 \\
+    &= \frac{1}{\sqrt{n!}} (a^* a + 1) (a^*)^{n-1} \phi_0
+\end{align}
+
+\begin{align}
+    a \phi_1 &= a a^* \phi_0 \\
+    &= a a^* \pi^{-1/4} e^{-x^2 / 2} \\
+    &= \pi^{-1/4} a (-d/dx + x) e^{-x^2 / 2} \\
+    &= \pi^{-1/4} a ( xe^{-x^2 / 2} + xe^{-x^2 / 2} ) \\
+    &= \pi^{-1/4} 2a ( xe^{-x^2 / 2} ) \\
+    &= \pi^{-1/4} 2 (\dx + x) ( xe^{-x^2 / 2} ) \\
+    &= \pi^{-1/4} 2 \dx ( xe^{-x^2 / 2} ) + x^2 e^{-x^2 / 2}  \\
+    &= \pi^{-1/4} 2 e^{-x^2 / 2} - x^2e^{-x^2 / 2} + x^2 e^{-x^2 / 2}  \\
+    &= \pi^{-1/4} 2 e^{-x^2 / 2} \\
+    &= 2 \phi_0 \\
+\end{align}
